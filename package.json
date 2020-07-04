@@ -36,6 +36,8 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "eslint-config-react-app": "^5.2.1",
+    "gatsby-plugin-eslint": "^2.0.8",
     "prettier": "2.0.5"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
