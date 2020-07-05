@@ -1,11 +1,10 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const Tema = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
@@ -26,14 +25,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.title}
           </h1>
-          <p
-            style={{
-              display: `block`,
-              marginBottom: "1rem",
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -41,9 +32,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             marginBottom: "1rem ",
           }}
         />
-        <footer>
-          <Bio />
-        </footer>
       </article>
 
       <nav>
@@ -76,10 +64,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default Tema
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query TemasBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -91,7 +79,6 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
         description
       }
     }

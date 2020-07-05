@@ -4,12 +4,12 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const component = path.resolve(`./src/templates/tema.js`)
   const result = await graphql(
     `
       {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: { fields: [frontmatter___order], order: ASC }
           limit: 1000
         ) {
           edges {
@@ -31,18 +31,17 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors
   }
 
-  // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const temas = result.data.allMarkdownRemark.edges
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node
-    const next = index === 0 ? null : posts[index - 1].node
+  temas.forEach((tema, index) => {
+    const previous = index === temas.length - 1 ? null : temas[index + 1].node
+    const next = index === 0 ? null : temas[index - 1].node
 
     createPage({
-      path: post.node.fields.slug,
-      component: blogPost,
+      path: tema.node.fields.slug,
+      component,
       context: {
-        slug: post.node.fields.slug,
+        slug: tema.node.fields.slug,
         previous,
         next,
       },
