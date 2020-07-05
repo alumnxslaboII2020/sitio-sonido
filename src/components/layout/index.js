@@ -1,8 +1,9 @@
 import React from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "@emotion/styled"
-import { Global, css } from '@emotion/core'
+import { Global, css } from "@emotion/core"
 import { ThemeProvider } from "emotion-theming"
+import { useStaticQuery, graphql } from "gatsby"
 
 import theme from "./theme"
 
@@ -15,7 +16,7 @@ const globlalStyles = css`
     margin: 0;
     padding: 0;
   }
-`;
+`
 
 const Header = styled.header`
   background-color: black;
@@ -38,6 +39,26 @@ const Footer = styled.footer`
 `
 
 const Layout = ({ title, children }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            social {
+              twitter
+            }
+            links {
+              site
+              name
+              url
+            }
+          }
+        }
+      }
+    `
+  )
   return (
     <ThemeProvider theme={theme}>
       <Global styles={globlalStyles} />
@@ -48,7 +69,13 @@ const Layout = ({ title, children }) => {
         </AniLink>
       </Header>
       <Main>{children}</Main>
-      <Footer>Holis</Footer>
+      <Footer>
+        {site.siteMetadata.links.map(({ site, name, url }) => (
+          <a href={url} target="_blank" rel="noopener noreferrer">
+            {site}: {name}
+          </a>
+        ))}
+      </Footer>
     </ThemeProvider>
   )
 }

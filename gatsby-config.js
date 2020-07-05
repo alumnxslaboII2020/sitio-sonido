@@ -1,6 +1,7 @@
+// TODO revise
 module.exports = {
   siteMetadata: {
-    title: ``,
+    title: `AAEE DISCO 2020`,
     author: {
       name: `AAEE - Labo II - 2020`,
     },
@@ -9,6 +10,14 @@ module.exports = {
     social: {
       twitter: `kylemathews`,
     },
+    links: [
+      {
+        site: "youtube",
+        name: "Alumnxs Labo II",
+        url:
+          "https://www.youtube.com/channel/UCHPCyWLViJmn7FRdauLJMrw/featured",
+      }
+    ]
   },
   plugins: [
     {
