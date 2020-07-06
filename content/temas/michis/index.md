@@ -2,6 +2,7 @@
 title: MICHIIIIISSSSS
 order: 1
 imagen: "./foto.jpeg"
+description: Una descripción
 ---
 
 # Holis
