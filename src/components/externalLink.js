@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import React from "react"
 import styled from "@emotion/styled"
 
 // TODO add styles
@@ -7,12 +7,7 @@ const Anchor = styled.a`
   text-decoration: none;
 `;
 
-type Props = {
-  children: ReactNode
-  href: string
-}
-
-const ExternalLink: ReactNode = ({ children, href }: Props) => (
+const ExternalLink = ({ children, href }) => (
   <Anchor href={href} target="_blank" rel="noopener noreferrer">
     {children}
   </Anchor>
