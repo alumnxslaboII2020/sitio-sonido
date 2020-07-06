@@ -47,6 +47,8 @@ listas:
 4. Varios
 5. Elementos
 
+---
+
 - Lista
 - Desordenada
 - Con
