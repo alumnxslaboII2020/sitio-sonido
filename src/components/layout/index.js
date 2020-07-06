@@ -22,7 +22,7 @@ const globlalStyles = css`
 const Header = styled.header`
   background-color: black;
   color: white;
-  height: 64px;
+  height: 4rem;
   position: fixed;
   width: 100%;
   z-index: 2;
@@ -63,12 +63,14 @@ const MenuLink = styled(AniLink)`
 
 const Main = styled.main`
   align-items: center;
+  background-color: #1e1e1e;
+  color: white;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  justify-content: center;
   min-height: 100vh;
-  max-width: 956px;
-  padding: 5rem 0 0 0;
+  padding: 4rem 0 0 0;
+  width: 100%;
 `
 
 const Footer = styled.footer`
