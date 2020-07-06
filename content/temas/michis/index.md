@@ -17,7 +17,7 @@ imagen: "./foto.jpeg"
 
 # Acá tenés MICHISSSSSSSSSS:
 
-![michis]("./foto.jpeg")
+![michis](./foto.jpeg)
 
 Un contenido ultra secreto en un [link]("https://www.youtube.com/watch?v=dQw4w9WgXcQ") (ver con discreción).
 
