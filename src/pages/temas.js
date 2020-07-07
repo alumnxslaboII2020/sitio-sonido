@@ -6,7 +6,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const BlogIndex = ({ data, location }) => {
+const Temas = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
@@ -14,7 +14,7 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Lista de temas" />
       {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
+        const titulo = node.frontmatter.titulo || node.fields.slug
         const { imagen } = node.frontmatter
         return (
           <article key={node.fields.slug}>
@@ -30,7 +30,7 @@ const BlogIndex = ({ data, location }) => {
                     marginBottom: "0.25rem",
                   }}
                 >
-                  {title}
+                  {titulo}
                 </h3>
               </header>
               <section>
@@ -46,7 +46,7 @@ const BlogIndex = ({ data, location }) => {
                 )}
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
+                    __html: node.frontmatter.descripcion || node.excerpt,
                   }}
                 />
               </section>
@@ -58,7 +58,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Temas
 
 export const pageQuery = graphql`
   query {
@@ -67,7 +67,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___order], order: ASC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___orden], order: ASC }) {
       edges {
         node {
           excerpt
@@ -75,7 +75,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            title
+            titulo
             imagen {
               childImageSharp {
                 fluid {
@@ -83,7 +83,7 @@ export const pageQuery = graphql`
                 }
               }
             }
-            description
+            descripcion
           }
         }
       }

@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
-          sort: { fields: [frontmatter___order], order: ASC }
+          sort: { fields: [frontmatter___orden], order: ASC }
           limit: 1000
         ) {
           edges {
@@ -18,7 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 slug
               }
               frontmatter {
-                title
+                titulo
               }
             }
           }

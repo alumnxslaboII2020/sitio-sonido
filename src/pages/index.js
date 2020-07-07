@@ -23,7 +23,7 @@ const MasonryContainer = styled.div`
   }
 `
 
-const BlogIndex = ({ data, location }) => {
+const Inicio = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
@@ -67,7 +67,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Inicio
 
 export const pageQuery = graphql`
   query {
@@ -76,7 +76,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___order], order: ASC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___orden], order: ASC }) {
       edges {
         node {
           excerpt
@@ -84,7 +84,6 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            title
             imagen {
               childImageSharp {
                 fluid(maxWidth: 360) {
@@ -94,7 +93,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            description
           }
         }
       }

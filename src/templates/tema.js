@@ -13,7 +13,7 @@ const Tema = ({ data, pageContext, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        description={post.frontmatter.descripcion || post.excerpt}
       />
       <article>
         <header>
@@ -23,7 +23,7 @@ const Tema = ({ data, pageContext, location }) => {
               marginBottom: 0,
             }}
           >
-            {post.frontmatter.title}
+            {post.frontmatter.titulo}
           </h1>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -47,14 +47,14 @@ const Tema = ({ data, pageContext, location }) => {
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
+                ← {previous.frontmatter.titulo}
               </Link>
             )}
           </li>
           <li>
             {next && (
               <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+                {next.frontmatter.titulo} →
               </Link>
             )}
           </li>
@@ -78,8 +78,8 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
-        title
-        description
+        titulo
+        descripcion
       }
     }
   }
