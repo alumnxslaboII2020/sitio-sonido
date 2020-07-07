@@ -39,7 +39,7 @@ color_links_hover: "#1C7293" # Color (css) del texto de los links del sitio cuan
 
 ![michis](./foto.jpeg)
 
-Un contenido ultra secreto en un [link]("https://www.youtube.com/watch?v=dQw4w9WgXcQ") (ver con discreción).
+Un contenido ultra secreto en un [link](https://www.youtube.com/watch?v=dQw4w9WgXcQ) (ver con discreción).
 
 *Fuente en cursiva*
 
