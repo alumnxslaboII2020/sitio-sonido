@@ -1,13 +1,12 @@
 import React from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import Image from "gatsby-image"
-// import Masonry from "react-masonry-component"
 import Masonry from "react-masonry-css"
 import { graphql } from "gatsby"
 import styled from "@emotion/styled"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TransitionLink from "../components/transitionLink"
 
 const MasonryContainer = styled.div`
   .custom-masonry-grid {
@@ -43,10 +42,24 @@ const Inicio = ({ data, location }) => {
           columnClassName="custom-masonry-grid_column"
         >
           {posts.map(({ node }) => {
-            const { imagen } = node.frontmatter
+            const {
+              imagen,
+              color_transicion,
+              direccion_transicion,
+              duracion_transicion,
+              tapar_transicion,
+              transicion,
+            } = node.frontmatter
             return (
               <article key={node.fields.slug}>
-                <AniLink hex="#000000" paintDrip to={node.fields.slug}>
+                <TransitionLink
+                  color_transicion={color_transicion}
+                  direccion_transicion={direccion_transicion}
+                  duracion_transicion={duracion_transicion}
+                  tapar_transicion={tapar_transicion}
+                  transicion={transicion}
+                  to={node.fields.slug}
+                >
                   {imagen && (
                     <div
                       style={{
@@ -57,7 +70,7 @@ const Inicio = ({ data, location }) => {
                       <Image fluid={imagen.childImageSharp.fluid} />
                     </div>
                   )}
-                </AniLink>
+                </TransitionLink>
               </article>
             )
           })}
@@ -84,6 +97,11 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            color_transicion
+            direccion_transicion
+            duracion_transicion
+            tapar_transicion
+            transicion
             imagen {
               childImageSharp {
                 fluid(maxWidth: 360) {

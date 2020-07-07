@@ -7,12 +7,17 @@ imagen: "./foto.jpeg" # Tapa de la obra, tiene que estar guardada en la misma ca
 # Opcional ficha técnica
 descripcion: Holis, acá hay michis
 
+# Opcional transicion
+transicion: crecer # Puede ser [crecer (crece desde donde se hizo click con un círculo hasta cubrir la pantalla), cubrir (una imagen/rectángulo que cubre toda la pantalla se desliza en alguna dirección), tapar (la página que entra o la que sale está cubriendo a la otra), fade]. Si no se especifica, es crecer por defecto
+color_transicion: "#ff0000" # Color (hexa) de la transición si no tiene imagen, es #000000 por defecto. Válido para transiciones [crecer, cubrir (sin imagen)]
+direccion_transicion: derecha # Puede ser [arriba, abajo, derecha, izquierda]. Si no se especifíca, es derecha por defecto. Válido para [cubrir]
+tapar_transicion: entrada # Puede ser [entrada, salida]. Si no se especifíca, es entrada por defecto. Válido para [tapar]
+duracion_transicion: 1 # Duración en segundos de la transición
+
 # Opcional estilos
-transicion: crecer # Puede ser [crecer, cubrir, tapar, fade]. Si no se especifica, es crecer por defecto
 color_sitio: "#000000" # Color (css) de la barra superior e inferior del sitio en esta pantalla, es #000000 por defecto.
 color_navegacion: "#ffffff" # Color (css) del texto de los links de navegación en esta pantalla, es #ffffff por defecto.
 color_navegacion_hover: "#ffffff" # Color (css) del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla, es #ffffff por defecto.
-color_transicion: "#000000" # Color (css) de la transición, es #000000 por defecto.
 color_fondo: "#ffffff" # Color (css) del fondo del sitio en esta pantalla, es #ffffff por defecto.
 color_letra: "#000000" # Color (css) del texto del sitio en esta pantalla, es #000000 por defecto.
 color_links: "#065A82" # Color (css) del texto de los links del sitio en esta pantalla, es #065A82 por defecto.
