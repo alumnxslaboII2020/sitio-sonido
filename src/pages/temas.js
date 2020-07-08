@@ -1,10 +1,10 @@
 import React from "react"
 import Image from "gatsby-image"
 import { graphql } from "gatsby"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TransitionLink from "../components/transitionLink"
 
 const Temas = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -15,13 +15,22 @@ const Temas = ({ data, location }) => {
       <SEO title="Lista de temas" />
       {posts.map(({ node }) => {
         const titulo = node.frontmatter.titulo || node.fields.slug
-        const { imagen } = node.frontmatter
+        const {
+          imagen,
+          color_transicion,
+          direccion_transicion,
+          duracion_transicion,
+          tapar_transicion,
+          transicion,
+        } = node.frontmatter
         return (
           <article key={node.fields.slug}>
-            <AniLink
-              hex="#000000"
-              paintDrip
-              style={{ boxShadow: `none` }}
+            <TransitionLink
+              color_transicion={color_transicion}
+              direccion_transicion={direccion_transicion}
+              duracion_transicion={duracion_transicion}
+              tapar_transicion={tapar_transicion}
+              transicion={transicion}
               to={node.fields.slug}
             >
               <header>
@@ -50,7 +59,7 @@ const Temas = ({ data, location }) => {
                   }}
                 />
               </section>
-            </AniLink>
+            </TransitionLink>
           </article>
         )
       })}
@@ -76,14 +85,20 @@ export const pageQuery = graphql`
           }
           frontmatter {
             titulo
+            color_transicion
+            direccion_transicion
+            duracion_transicion
+            tapar_transicion
+            transicion
             imagen {
               childImageSharp {
-                fluid {
+                fluid(maxWidth: 360) {
                   ...GatsbyImageSharpFluid_tracedSVG
+                  presentationHeight
+                  presentationWidth
                 }
               }
             }
-            descripcion
           }
         }
       }
