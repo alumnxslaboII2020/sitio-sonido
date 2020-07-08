@@ -137,7 +137,6 @@ const Layout = ({ children, overrideTheme = {} }) => {
     ]
   )
 
-  console.log({ pageTheme, overrideTheme, theme })
   return (
     <ThemeProvider theme={pageTheme}>
       <Global styles={globlalStyles} />
