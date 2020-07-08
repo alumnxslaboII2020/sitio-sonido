@@ -12,7 +12,7 @@ const Tema = ({ data, pageContext, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
-        title={post.frontmatter.title}
+        title={post.frontmatter.titulo}
         description={post.frontmatter.descripcion || post.excerpt}
       />
       <article>
