@@ -1,5 +1,4 @@
 import React from "react"
-import Image from "gatsby-image"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
@@ -69,18 +68,6 @@ const MenuLink = styled(AniLink)`
   }
 `
 
-const Banner = styled.div`
-  height: auto;
-  width: 80%;
-`;
-
-const BannerContainer = styled.div`
-  background-color: black;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
-
 const Main = styled.main`
   align-items: center;
   background-color: #1e1e1e;
@@ -103,17 +90,9 @@ const Footer = styled.footer`
 `
 
 const Layout = ({ children }) => {
-  const { site, file } = useStaticQuery(
+  const { site } = useStaticQuery(
     graphql`
       query {
-        file(name: {eq: "banner_crop"}, sourceInstanceName: {eq: "assets"}) {
-          name
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid_tracedSVG
-            }
-          }
-        }
         site {
           siteMetadata {
             title
@@ -162,13 +141,6 @@ const Layout = ({ children }) => {
           </Menu>
         </Nav>
       </Header>
-      {file && (
-        <BannerContainer>
-          <Banner>
-            <Image alt={file.name} fluid={file.childImageSharp.fluid} />
-          </Banner>
-        </BannerContainer>
-      )}
       <Main>{children}</Main>
       <Footer>
         {site.siteMetadata.links.map(({ site, name, url }) => (

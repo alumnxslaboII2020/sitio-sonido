@@ -22,6 +22,17 @@ const MasonryContainer = styled.div`
   }
 `
 
+const Banner = styled.div`
+  height: auto;
+  width: 80%;
+`
+
+const BannerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`
+
 const Inicio = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
@@ -29,6 +40,16 @@ const Inicio = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Inicio" />
+      {data.file && (
+        <BannerContainer>
+          <Banner>
+            <Image
+              alt={data.file.name}
+              fluid={data.file.childImageSharp.fluid}
+            />
+          </Banner>
+        </BannerContainer>
+      )}
       <MasonryContainer>
         <Masonry
           breakpointCols={{
@@ -87,6 +108,14 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    file(name: { eq: "tarjetasd" }, sourceInstanceName: { eq: "assets" }) {
+      name
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_tracedSVG
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___orden], order: ASC }) {
