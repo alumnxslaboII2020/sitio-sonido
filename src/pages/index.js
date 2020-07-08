@@ -24,7 +24,13 @@ const MasonryContainer = styled.div`
 
 const Banner = styled.div`
   height: auto;
-  width: 80%;
+  width: 40%;
+  @media (max-width: 768px) {
+    width: 60%;
+  }
+  @media (max-width: 554px) {
+    width: 80%;
+  }
 `
 
 const BannerContainer = styled.div`

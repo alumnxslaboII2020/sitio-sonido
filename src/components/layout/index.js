@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo } from "react"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
@@ -7,10 +7,8 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import ExternalLink from "../externalLink"
 
-import theme from "./theme"
+import theme, { THEME_MAPPER } from "./theme"
 
-// TODO add layout personalizado por tema
-// TODO fix banner de ejemplo, por ahora es una prueba, necesitamos un png
 
 const globlalStyles = css`
   * {
@@ -27,8 +25,7 @@ const globlalStyles = css`
 `
 
 const Header = styled.header`
-  background-color: black;
-  color: white;
+  background-color: ${({ theme }) => theme.layout};
   height: 4rem;
   position: fixed;
   width: 100%;
@@ -55,23 +52,23 @@ const MenuItem = styled.li`
 const MenuLink = styled(AniLink)`
   border-bottom: solid 1px transparent;
   border-radius: 4px 4px 0 0;
-  color: white;
+  color: ${({ theme }) => theme.layout_links};
   padding: 0.5rem 1rem;
   text-decoration: none;
   transition: background-color 0.4s ease, border-bottom-color 0.4s ease;
   &.active {
-    border-bottom-color: white;
+    border-bottom-color: ${({ theme }) => theme.layout_links};
   }
   &:focus,
   &:hover {
-    background-color: #2f2f2f;
+    background-color: ${({ theme }) => theme.layout_links_hover};
   }
 `
 
 const Main = styled.main`
   align-items: center;
-  background-color: #1e1e1e;
-  color: white;
+  background-color: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.color};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,14 +79,14 @@ const Main = styled.main`
 
 const Footer = styled.footer`
   align-items: center;
-  background-color: black;
-  color: white;
+  background-color: ${({ theme }) => theme.layout};
+  color: ${({ theme }) => theme.layout_links};
   display: flex;
   height: 6rem;
   width: 100%;
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, overrideTheme = {} }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -110,8 +107,39 @@ const Layout = ({ children }) => {
       }
     `
   )
+  const pageTheme = useMemo(
+    () => ({
+      [THEME_MAPPER.color_sitio]:
+        overrideTheme.color_sitio || theme[THEME_MAPPER.color_sitio],
+      [THEME_MAPPER.color_navegacion]:
+        overrideTheme.color_navegacion || theme[THEME_MAPPER.color_navegacion],
+      [THEME_MAPPER.color_navegacion_hover]:
+        overrideTheme.color_navegacion_hover ||
+        theme[THEME_MAPPER.color_navegacion_hover],
+      [THEME_MAPPER.color_fondo]:
+        overrideTheme.color_fondo || theme[THEME_MAPPER.color_fondo],
+      [THEME_MAPPER.color_letra]:
+        overrideTheme.color_letra || theme[THEME_MAPPER.color_letra],
+      [THEME_MAPPER.color_links]:
+        overrideTheme.color_links || theme[THEME_MAPPER.color_links],
+      [THEME_MAPPER.color_links_hover]:
+        overrideTheme.color_links_hover ||
+        theme[THEME_MAPPER.color_links_hover],
+    }),
+    [
+      overrideTheme.color_fondo,
+      overrideTheme.color_letra,
+      overrideTheme.color_links,
+      overrideTheme.color_links_hover,
+      overrideTheme.color_navegacion,
+      overrideTheme.color_navegacion_hover,
+      overrideTheme.color_sitio,
+    ]
+  )
+
+  console.log({ pageTheme, overrideTheme, theme })
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={pageTheme}>
       <Global styles={globlalStyles} />
       <Header>
         <Nav>

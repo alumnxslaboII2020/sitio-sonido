@@ -15,10 +15,10 @@ tapar_transicion: entrada # Puede ser [entrada, salida]. Si no se especifíca, e
 duracion_transicion: 1 # Duración en segundos de la transición
 
 # Opcional estilos
-color_sitio: "#000000" # Color (css) de la barra superior e inferior del sitio en esta pantalla, es #000000 por defecto.
-color_navegacion: "#ffffff" # Color (css) del texto de los links de navegación en esta pantalla, es #ffffff por defecto.
-color_navegacion_hover: "#ffffff" # Color (css) del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla, es #ffffff por defecto.
-color_fondo: "#ffffff" # Color (css) del fondo del sitio en esta pantalla, es #ffffff por defecto.
+color_sitio: "#ff0000" # Color (css) de la barra superior e inferior del sitio en esta pantalla, es #000000 por defecto.
+color_navegacion: "#000000" # Color (css) del texto de los links de navegación en esta pantalla, es #ffffff por defecto.
+color_navegacion_hover: "#11111144" # Color (css) del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla, es #eeeeee44 por defecto.
+color_fondo: "#aa0000" # Color (css) del fondo del sitio en esta pantalla, es #ffffff por defecto.
 color_letra: "#000000" # Color (css) del texto del sitio en esta pantalla, es #000000 por defecto.
 color_links: "#065A82" # Color (css) del texto de los links del sitio en esta pantalla, es #065A82 por defecto.
 color_links_hover: "#1C7293" # Color (css) del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla, es #1C7293 por defecto.

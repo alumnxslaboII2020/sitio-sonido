@@ -8,13 +8,33 @@ const Tema = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+  const {
+    titulo,
+    descripcion,
+    color_sitio,
+    color_navegacion,
+    color_navegacion_hover,
+    color_fondo,
+    color_letra,
+    color_links,
+    color_links_hover,
+  } = post.frontmatter
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO
-        title={post.frontmatter.titulo}
-        description={post.frontmatter.descripcion || post.excerpt}
-      />
+    <Layout
+      location={location}
+      overrideTheme={{
+        color_sitio,
+        color_navegacion,
+        color_navegacion_hover,
+        color_fondo,
+        color_letra,
+        color_links,
+        color_links_hover,
+      }}
+      title={siteTitle}
+    >
+      <SEO title={titulo} description={descripcion || post.excerpt} />
       <article>
         <header>
           <h1
@@ -23,7 +43,7 @@ const Tema = ({ data, pageContext, location }) => {
               marginBottom: 0,
             }}
           >
-            {post.frontmatter.titulo}
+            {titulo}
           </h1>
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -80,6 +100,13 @@ export const pageQuery = graphql`
       frontmatter {
         titulo
         descripcion
+        color_sitio
+        color_navegacion
+        color_navegacion_hover
+        color_fondo
+        color_letra
+        color_links
+        color_links_hover
       }
     }
   }
