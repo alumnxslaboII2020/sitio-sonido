@@ -116,7 +116,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    file(name: { eq: "tarjetasd" }, sourceInstanceName: { eq: "assets" }) {
+    file(name: { eq: "tarjeta" }, sourceInstanceName: { eq: "assets" }) {
       name
       childImageSharp {
         fluid {
