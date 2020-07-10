@@ -9,7 +9,6 @@ import ExternalLink from "../externalLink"
 
 import theme, { THEME_MAPPER } from "./theme"
 
-
 const globlalStyles = css`
   * {
     font-family: "Poppins", sans-serif;
@@ -24,16 +23,14 @@ const globlalStyles = css`
   }
 `
 
-const Header = styled.header`
+const Header = styled.nav`
   background-color: ${({ theme }) => theme.layout};
   height: 4rem;
+  padding: 0 1rem;
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 2;
-`
-
-const Nav = styled.nav`
-  padding: 0 1rem;
 `
 
 const Menu = styled.ul`
@@ -73,7 +70,7 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
-  padding: 4rem 0 0 0;
+  padding: 4rem 0;
   width: 100%;
 `
 
@@ -140,8 +137,8 @@ const Layout = ({ children, overrideTheme = {} }) => {
   return (
     <ThemeProvider theme={pageTheme}>
       <Global styles={globlalStyles} />
-      <Header>
-        <Nav>
+      <div>
+        <Header>
           <Menu>
             <MenuItem>
               <MenuLink
@@ -166,16 +163,16 @@ const Layout = ({ children, overrideTheme = {} }) => {
               </MenuLink>
             </MenuItem>
           </Menu>
-        </Nav>
-      </Header>
-      <Main>{children}</Main>
-      <Footer>
-        {site.siteMetadata.links.map(({ site, name, url }) => (
-          <ExternalLink key={url} href={url}>
-            {site}: {name}
-          </ExternalLink>
-        ))}
-      </Footer>
+        </Header>
+        <Main>{children}</Main>
+        <Footer>
+          {site.siteMetadata.links.map(({ site, name, url }) => (
+            <ExternalLink key={url} href={url}>
+              {site}: {name}
+            </ExternalLink>
+          ))}
+        </Footer>
+      </div>
     </ThemeProvider>
   )
 }
