@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "aaee-labo-2-sonido-2020",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Sitio web hecho con Gatsby, React, Emotion CSS y Markdown",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -33,14 +33,15 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
-    "react-masonry-css": "^1.0.14"
+    "react-masonry-css": "^1.0.14",
+    "rehype-react": "^6.0.0"
   },
   "devDependencies": {
     "eslint-config-react-app": "^5.2.1",
     "gatsby-plugin-eslint": "^2.0.8",
     "prettier": "2.0.5"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "Sitio web proyecto fonográfico labo 2 AAEE 2020",
   "keywords": [
     "gatsby"
   ],

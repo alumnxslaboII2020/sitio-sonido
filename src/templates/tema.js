@@ -1,11 +1,18 @@
-import React from "react"
+import React, { createElement } from "react"
+import rehypeReact from "rehype-react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import markdown from "../components/markdown"
+
+const astCompiler = new rehypeReact({
+  createElement,
+  components: markdown,
+}).Compiler;
 
 const Tema = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
+  const tema = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const {
@@ -18,7 +25,7 @@ const Tema = ({ data, pageContext, location }) => {
     color_letra,
     color_links,
     color_links_hover,
-  } = post.frontmatter
+  } = tema.frontmatter
 
   return (
     <Layout
@@ -34,7 +41,7 @@ const Tema = ({ data, pageContext, location }) => {
       }}
       title={siteTitle}
     >
-      <SEO title={titulo} description={descripcion || post.excerpt} />
+      <SEO title={titulo} description={descripcion || tema.excerpt} />
       <article>
         <header>
           <h1
@@ -46,7 +53,9 @@ const Tema = ({ data, pageContext, location }) => {
             {titulo}
           </h1>
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        <section>
+          {astCompiler(tema.htmlAst)}
+        </section>
         <hr
           style={{
             marginBottom: "1rem ",
@@ -96,7 +105,7 @@ export const pageQuery = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      htmlAst
       frontmatter {
         titulo
         descripcion
