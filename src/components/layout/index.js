@@ -20,7 +20,7 @@ const globlalStyles = css`
 `
 
 const Header = styled.header`
-  background-color: black;
+  background-color: red;
   color: white;
   height: 4rem;
   position: fixed;
@@ -48,7 +48,7 @@ const MenuItem = styled.li`
 const MenuLink = styled(AniLink)`
   border-bottom: solid 1px transparent;
   border-radius: 4px 4px 0 0;
-  color: white;
+  color: blueviolet;
   padding: 0.5rem 1rem;
   text-decoration: none;
   transition: background-color 0.4s ease, border-bottom-color 0.4s ease;
@@ -57,13 +57,13 @@ const MenuLink = styled(AniLink)`
   }
   &:focus,
   &:hover {
-    background-color: #2f2f2f;
+    background-color: red;
   }
 `
 
 const Main = styled.main`
   align-items: center;
-  background-color: #1e1e1e;
+  background-color: red;
   color: white;
   display: flex;
   flex-direction: column;
@@ -75,7 +75,7 @@ const Main = styled.main`
 
 const Footer = styled.footer`
   align-items: center;
-  background-color: black;
+  background-color: red;
   color: white;
   display: flex;
   height: 6rem;
@@ -112,7 +112,7 @@ const Layout = ({ children }) => {
             <MenuItem>
               <MenuLink
                 activeClassName="active"
-                hex="#000000"
+                hex="#000555"
                 paintDrip
                 direction
                 to="/"
@@ -123,7 +123,7 @@ const Layout = ({ children }) => {
             <MenuItem>
               <MenuLink
                 activeClassName="active"
-                hex="#000000"
+                hex="#000555"
                 paintDrip
                 direction
                 to="/temas"
