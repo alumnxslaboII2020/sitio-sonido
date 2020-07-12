@@ -1,8 +1,8 @@
 import React from "react"
 import Image from "gatsby-image"
 import Masonry from "react-masonry-css"
-import { graphql } from "gatsby"
 import styled from "@emotion/styled"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -41,7 +41,7 @@ const BannerContainer = styled.div`
 
 const Inicio = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const temas = data.allMarkdownRemark.edges
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -68,7 +68,7 @@ const Inicio = ({ data, location }) => {
           className="custom-masonry-grid"
           columnClassName="custom-masonry-grid_column"
         >
-          {posts.map(({ node }) => {
+          {temas.map(({ node }) => {
             const {
               imagen,
               color_transicion,

@@ -9,7 +9,7 @@ import markdown from "../components/markdown"
 const astCompiler = new rehypeReact({
   createElement,
   components: markdown,
-}).Compiler;
+}).Compiler
 
 const Tema = ({ data, pageContext, location }) => {
   const tema = data.markdownRemark
@@ -25,6 +25,11 @@ const Tema = ({ data, pageContext, location }) => {
     color_letra,
     color_links,
     color_links_hover,
+    color_transicion,
+    direccion_transicion,
+    duracion_transicion,
+    tapar_transicion,
+    transicion,
   } = tema.frontmatter
 
   return (
@@ -40,6 +45,13 @@ const Tema = ({ data, pageContext, location }) => {
         color_links_hover,
       }}
       title={siteTitle}
+      transition={{
+        color_transicion,
+        direccion_transicion,
+        duracion_transicion,
+        tapar_transicion,
+        transicion,
+      }}
     >
       <SEO title={titulo} description={descripcion || tema.excerpt} />
       <article>
@@ -53,9 +65,7 @@ const Tema = ({ data, pageContext, location }) => {
             {titulo}
           </h1>
         </header>
-        <section>
-          {astCompiler(tema.htmlAst)}
-        </section>
+        <section>{astCompiler(tema.htmlAst)}</section>
         <hr
           style={{
             marginBottom: "1rem ",
@@ -116,6 +126,11 @@ export const pageQuery = graphql`
         color_letra
         color_links
         color_links_hover
+        color_transicion
+        direccion_transicion
+        duracion_transicion
+        tapar_transicion
+        transicion
       }
     }
   }

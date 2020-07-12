@@ -1,11 +1,11 @@
 import React, { useMemo } from "react"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
 import { ThemeProvider } from "emotion-theming"
 import { useStaticQuery, graphql } from "gatsby"
 
 import ExternalLink from "../externalLink"
+import TransitionLink from "../transitionLink"
 
 import theme, { THEME_MAPPER } from "./theme"
 
@@ -46,7 +46,7 @@ const MenuItem = styled.li`
   }
 `
 
-const MenuLink = styled(AniLink)`
+const MenuLink = styled(TransitionLink)`
   border-bottom: solid 1px transparent;
   border-radius: 4px 4px 0 0;
   color: ${({ theme }) => theme.layout_links};
@@ -83,7 +83,7 @@ const Footer = styled.footer`
   width: 100%;
 `
 
-const Layout = ({ children, overrideTheme = {} }) => {
+const Layout = ({ children, overrideTheme = {}, transition = {} }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -142,10 +142,8 @@ const Layout = ({ children, overrideTheme = {} }) => {
           <Menu>
             <MenuItem>
               <MenuLink
+                {...transition}
                 activeClassName="active"
-                hex="#000000"
-                paintDrip
-                direction
                 to="/"
               >
                 Inicio
@@ -153,10 +151,8 @@ const Layout = ({ children, overrideTheme = {} }) => {
             </MenuItem>
             <MenuItem>
               <MenuLink
+                {...transition}
                 activeClassName="active"
-                hex="#000000"
-                paintDrip
-                direction
                 to="/temas"
               >
                 Temas
