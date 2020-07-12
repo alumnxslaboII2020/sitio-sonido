@@ -8,7 +8,7 @@ imagen: "./foto.jpeg" # Tapa de la obra, tiene que estar guardada en la misma ca
 descripcion: Holis, acá hay michis con una transición de fade
 
 # Opcional transicion
-transicion: crecer # Puede ser [crecer (crece desde donde se hizo click con un círculo hasta cubrir la pantalla), cubrir (una imagen/rectángulo que cubre toda la pantalla se desliza en alguna dirección), tapar (la página que entra o la que sale está cubriendo a la otra), fade]. Si no se especifica, es crecer por defecto
+transicion: fade # Puede ser [crecer (crece desde donde se hizo click con un círculo hasta cubrir la pantalla), cubrir (una imagen/rectángulo que cubre toda la pantalla se desliza en alguna dirección), tapar (la página que entra o la que sale está cubriendo a la otra), fade]. Si no se especifica, es crecer por defecto
 color_transicion: "#000000" # Color (hexa) de la transición si no tiene imagen, es #000000 por defecto. Válido para transiciones [crecer, cubrir (sin imagen)]
 direccion_transicion: derecha # Puede ser [arriba, abajo, derecha, izquierda]. Si no se especifíca, es derecha por defecto. Válido para [cubrir]
 tapar_transicion: entrada # Puede ser [entrada, salida]. Si no se especifíca, es entrada por defecto. Válido para [tapar]
