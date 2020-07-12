@@ -9,16 +9,16 @@ import SEO from "../components/seo"
 import TransitionLink from "../components/transitionLink"
 
 const MasonryContainer = styled.div`
+  width: 100%;
   .custom-masonry-grid {
-    display: -webkit-box; /* Not needed if autoprefixing */
-    display: -ms-flexbox; /* Not needed if autoprefixing */
     display: flex;
     margin-left: 0px; /* gutter size offset */
     width: auto;
   }
   .custom-masonry-grid_column {
-    padding-left: 0px; /* gutter size */
     background-clip: padding-box;
+    height: 100%;
+    padding-left: 0px; /* gutter size */
   }
 `
 
@@ -37,6 +37,25 @@ const BannerContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+`
+
+const ImageContainer = styled.div`
+  height: auto;
+  min-width: 300px;
+  max-width: calc(100vw / 5);
+  width: auto;
+  @media (max-width: 1600px) {
+    max-width: calc(100vw / 4);
+  }
+  @media (max-width: 1200px) {
+    max-width: calc(100vw / 3);
+  }
+  @media (max-width: 900px) {
+    max-width: calc(100vw / 2);
+  }
+  @media (max-width: 600px) {
+    max-width: 100vw;
+  }
 `
 
 const Inicio = ({ data, location }) => {
@@ -60,10 +79,10 @@ const Inicio = ({ data, location }) => {
         <Masonry
           breakpointCols={{
             default: 5,
-            [360 * 5]: 4,
-            [360 * 4]: 3,
-            [360 * 3]: 2,
-            [360 * 2]: 1,
+            1600: 4,
+            1200: 3,
+            900: 2,
+            600: 1,
           }}
           className="custom-masonry-grid"
           columnClassName="custom-masonry-grid_column"
@@ -80,7 +99,9 @@ const Inicio = ({ data, location }) => {
             return (
               <article key={node.fields.slug}>
                 <TransitionLink
-                  color_transicion={color_transicion}
+                  color_transicion={
+                    transicion === "cubrir" ? "#000" : color_transicion
+                  }
                   direccion_transicion={direccion_transicion}
                   duracion_transicion={duracion_transicion}
                   tapar_transicion={tapar_transicion}
@@ -88,14 +109,9 @@ const Inicio = ({ data, location }) => {
                   to={node.fields.slug}
                 >
                   {imagen && (
-                    <div
-                      style={{
-                        height: imagen.childImageSharp.fluid.presentationHeight,
-                        width: 360,
-                      }}
-                    >
+                    <ImageContainer>
                       <Image fluid={imagen.childImageSharp.fluid} />
-                    </div>
+                    </ImageContainer>
                   )}
                 </TransitionLink>
               </article>
@@ -139,7 +155,7 @@ export const pageQuery = graphql`
             transicion
             imagen {
               childImageSharp {
-                fluid(maxWidth: 360) {
+                fluid(maxWidth: 400) {
                   ...GatsbyImageSharpFluid_tracedSVG
                   presentationHeight
                   presentationWidth
