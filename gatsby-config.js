@@ -3,10 +3,10 @@ module.exports = {
   siteMetadata: {
     title: `AAEE DISCO 2020`,
     author: {
-      name: `AAEE - Labo II - 2020`,
+      name: `AAEE - Labo II - 2020`, // TODO cambiar por el nombre del disco
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `Proyecto fonográfico LABO II 2020`,
+    siteUrl: `https://pandemi-ae.vercel.app/`,
     social: {
       twitter: `kylemathews`, // TODO change
     },
