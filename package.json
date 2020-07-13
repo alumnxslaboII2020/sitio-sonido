@@ -1,7 +1,7 @@
 {
   "name": "aaee-labo-2-sonido-2020",
   "private": true,
-  "description": "Sitio web hecho con Gatsby, React, Emotion CSS y Markdown",
+  "description": "Sitio web para el proyecto de sonido de laboratorio 2 en 2020 hecho con Gatsby, React, Emotion CSS y Markdown",
   "version": "0.1.0",
   "author": "",
   "bugs": {
@@ -49,7 +49,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/alumnxslaboII2020/sitio-sonido.git"
   },
   "scripts": {
     "build": "gatsby build",
