@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `AAEE DISCO 2020`,
     author: {
-      name: `AAEE - Labo II - 2020`, // TODO cambiar por el nombre del disco
+      name: `Resonancia colectiva: encuentros electroacústicos en laboratorios improvisados`,
     },
     description: `Proyecto fonográfico LABO II 2020`,
     siteUrl: `https://pandemi-ae.vercel.app/`,
