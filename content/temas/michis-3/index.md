@@ -25,18 +25,26 @@ color_links_hover: "#afff00" # Color (css) del texto de los links del sitio cuan
 ---
 
 # Transicion
-transicion: cubrir (Puede ser "crecer" - crece desde donde se hizo click con un círculo hasta cubrir la pantalla -, "cubrir" - un rectángulo que cubre toda la pantalla se desliza en alguna dirección -, "tapar" (la página que entra o la que sale está cubriendo a la otra), "fade".
-color_transicion: #faaf10 (Color de la transición)
-direccion_transicion: derecha (Puede ser "arriba", "abajo", "derecha", "izquierda").
+- transicion: cubrir (Puede ser "crecer" - crece desde donde se hizo click con un círculo hasta cubrir la pantalla -, "cubrir" - un rectángulo que cubre toda la pantalla se desliza en alguna dirección -, "tapar" (la página que entra o la que sale está cubriendo a la otra), "fade".
+
+- color\_transicion: #faaf10 (Color de la transición)
+
+- direccion\_transicion: derecha (Puede ser "arriba", "abajo", "derecha", "izquierda").
 
 # Estilos
-color_sitio: #faaf10 (Color de la barra superior e inferior del sitio en esta pantalla.
-color_navegacion: #000000 (Color del texto de los links de navegación en esta pantalla.
-color_navegacion_hover: #00000044 (Color del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla.
-color_fondo: #000000 (Color del fondo del sitio en esta pantalla.
-color_letra: #faaf10  (Color del texto del sitio en esta pantalla.
-color_links: #b0f000 (Color del texto de los links del sitio en esta pantalla.
-color_links_hover: #afff00 (Color del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla.
+- color\_sitio: #faaf10 (Color de la barra superior e inferior del sitio en esta pantalla.
+
+- color\_navegacion: #000000 (Color del texto de los links de navegación en esta pantalla.
+
+- color\_navegacion_hover: #00000044 (Color del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla.
+
+- color\_fondo: #000000 (Color del fondo del sitio en esta pantalla.
+
+- color\_letra: #faaf10  (Color del texto del sitio en esta pantalla.
+
+- color\_links: #b0f000 (Color del texto de los links del sitio en esta pantalla.
+
+- color\_links_hover: #afff00 (Color del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla.
 
 # Holis
 
