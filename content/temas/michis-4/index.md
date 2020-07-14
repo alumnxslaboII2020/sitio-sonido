@@ -9,7 +9,7 @@ descripcion: Otra transición distinta y otro color de fondo
 
 # Opcional transicion
 transicion: cubrir # Puede ser [crecer (crece desde donde se hizo click con un círculo hasta cubrir la pantalla), cubrir (una imagen/rectángulo que cubre toda la pantalla se desliza en alguna dirección), tapar (la página que entra o la que sale está cubriendo a la otra), fade]. Si no se especifica, es crecer por defecto
-color_transicion: "#ff0000" # Color (hexa) de la transición si no tiene imagen, es #000000 por defecto. Válido para transiciones [crecer, cubrir (sin imagen)]
+color_transicion: "#f99f00" # Color (hexa) de la transición si no tiene imagen, es #000000 por defecto. Válido para transiciones [crecer, cubrir (sin imagen)]
 direccion_transicion: arriba # Puede ser [arriba, abajo, derecha, izquierda]. Si no se especifíca, es derecha por defecto. Válido para [cubrir]
 tapar_transicion: entrada # Puede ser [entrada, salida]. Si no se especifíca, es entrada por defecto. Válido para [tapar]
 duracion_transicion: 1 # Duración en segundos de la transición
@@ -27,7 +27,7 @@ color_links_hover: "#1f1f1f" # Color (css) del texto de los links del sitio cuan
 # Transicion
 - transicion: "cubrir" (Puede ser "crecer" - crece desde donde se hizo click con un círculo hasta cubrir la pantalla -, "cubrir" - un rectángulo que cubre toda la pantalla se desliza en alguna dirección -, "tapar" - la página que entra o la que sale está cubriendo a la otra -, "fade".
 
-- color\_transicion: #ff0000 (Color de la transición).
+- color\_transicion: #f99f00 (Color de la transición).
 direccion_transicion: arriba (Puede ser "arriba", "abajo", "derecha", "izquierda").
 
 # Estilos
