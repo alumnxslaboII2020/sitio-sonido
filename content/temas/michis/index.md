@@ -26,16 +26,23 @@ color_links_hover: "#1C7293" # Color (css) del texto de los links del sitio cuan
 
 # Transicion
 - transicion: crecer
-- color_transicion: #663399
+
+- color\_transicion: #663399
 
 # Estilos
-- color_sitio: #663399 (Color de la barra superior e inferior del sitio en esta pantalla).
-- color_navegacion: #ffffff (Color del texto de los links de navegación en esta pantalla).
-- color_navegacion_hover: #ffffff44 (Color del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla).
-- color_fondo: #ffffff (Color del fondo del sitio en esta pantalla).
-- color_letra: #000000 (Color del texto del sitio en esta pantalla).
-- color_links: #065A82 (Color del texto de los links del sitio en esta pantalla).
-- color_links_hover: #1C7293" (Color del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla).
+- color\_sitio: #663399 (Color de la barra superior e inferior del sitio en esta pantalla).
+
+- color\_navegacion: #ffffff (Color del texto de los links de navegación en esta pantalla).
+
+- color\_navegacion_hover: #ffffff44 (Color del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla).
+
+- color\_fondo: #ffffff (Color del fondo del sitio en esta pantalla).
+
+- color\_letra: #000000 (Color del texto del sitio en esta pantalla).
+
+- color\_links: #065A82 (Color del texto de los links del sitio en esta pantalla).
+
+- color\_links_hover: #1C7293" (Color del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla).
 
 
 # Holis
