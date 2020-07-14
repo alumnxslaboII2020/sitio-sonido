@@ -26,16 +26,23 @@ color_links_hover: "#1C7293" # Color (css) del texto de los links del sitio cuan
 
 # Transicion
 transicion: "tapar" (Puede ser "crecer" - crece desde donde se hizo click con un círculo hasta cubrir la pantalla -, "cubrir" - un rectángulo que cubre toda la pantalla se desliza en alguna dirección -, "tapar" - la página que entra o la que sale está cubriendo a la otra -, "fade").
-tapar_transicion: entrada (Si la transición es tapar, que contenido está por encima, el que entra o el que sale). Puede ser "Entrada o salida"
+
+tapar\_transicion: entrada (Si la transición es tapar, que contenido está por encima, el que entra o el que sale). Puede ser "Entrada o salida"
 
 # Estilos
-color_sitio: #0f00af (Color de la barra superior e inferior del sitio en esta pantalla).
-color_navegacion: #ffffff (Color del texto de los links de navegación en esta pantalla).
-color_navegacion_hover: #ffffff44 (Color del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla).
-color_fondo: #ffffff (Color del fondo del sitio en esta pantalla).
-color_letra: #000000  (Color del texto del sitio en esta pantalla).
-color_links: #065A82 (Color del texto de los links del sitio en esta pantalla).
-color_links_hover: #1C7293 (Color del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla).
+color\_sitio: #0f00af (Color de la barra superior e inferior del sitio en esta pantalla).
+
+color\_navegacion: #ffffff (Color del texto de los links de navegación en esta pantalla).
+
+color\_navegacion_hover: #ffffff44 (Color del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla).
+
+color\_fondo: #ffffff (Color del fondo del sitio en esta pantalla).
+
+color\_letra: #000000  (Color del texto del sitio en esta pantalla).
+
+color\_links: #065A82 (Color del texto de los links del sitio en esta pantalla).
+
+color\_links_hover: #1C7293 (Color del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla).
 
 # Holis
 
