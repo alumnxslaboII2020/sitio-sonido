@@ -24,6 +24,20 @@ color_links: "#000000" # Color (css) del texto de los links del sitio en esta pa
 color_links_hover: "#1f1f1f" # Color (css) del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla, es #1C7293 por defecto.
 ---
 
+# Transicion
+transicion: "cubrir" (Puede ser "crecer" - crece desde donde se hizo click con un círculo hasta cubrir la pantalla -, "cubrir" - un rectángulo que cubre toda la pantalla se desliza en alguna dirección -, "tapar" - la página que entra o la que sale está cubriendo a la otra -, "fade".
+color_transicion: #ff0000 (Color de la transición).
+direccion_transicion: arriba (Puede ser "arriba", "abajo", "derecha", "izquierda").
+
+# Estilos
+color_sitio: #b0f000 (Color de la barra superior e inferior del sitio en esta pantalla.
+color_navegacion: #000000 (Color del texto de los links de navegación en esta pantalla.
+color_navegacion_hover: #00000044 (Color del texto de los links de navegación cuando se les pasa el mouse encima en esta pantalla.
+color_fondo: #ffffff (Color del fondo del sitio en esta pantalla.
+color_letra: #f99f00 (Color del texto del sitio en esta pantalla.
+color_links: #000000 (Color del texto de los links del sitio en esta pantalla.
+color_links_hover: #1f1f1f (Color del texto de los links del sitio cuando se les pasa el mouse encima en esta pantalla.
+
 # Holis
 
 # Esto está en markdown
