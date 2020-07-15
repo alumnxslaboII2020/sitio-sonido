@@ -21,6 +21,9 @@ const globlalStyles = css`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    & .tl-wrapper.tl-wrapper-status--entered {
+      transform: none !important;
+    }
   }
 `
 
@@ -65,13 +68,14 @@ const MenuLink = styled(TransitionLink)`
 
 const Main = styled.main`
   align-items: center;
-  background-color: ${({ background, theme }) => background ? "transparent" : theme.background};
+  background-color: ${({ background, theme }) =>
+    background ? "transparent" : theme.background};
   color: ${({ theme }) => theme.color};
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 100vh;
-  padding: 4rem 0;
+  min-height: calc(100vh - 10rem);
+  padding: 4rem 0 0 0;
   width: 100%;
 `
 
@@ -161,37 +165,35 @@ const Layout = ({
   return (
     <ThemeProvider theme={pageTheme}>
       <Global styles={globlalStyles} />
-      <div>
-        <Header>
-          <Menu>
-            <MenuItem>
-              <MenuLink {...transition} activeClassName="active" to="/">
-                Inicio
-              </MenuLink>
-            </MenuItem>
-            <MenuItem>
-              <MenuLink {...transition} activeClassName="active" to="/temas">
-                Temas
-              </MenuLink>
-            </MenuItem>
-          </Menu>
-        </Header>
-        <Main background={background}>
-          {background && (
-            <BackgroundImageContainer>
-              <Image imgStyle={{ zIndex: 0 }} style={{ zIndex: 0 }} fluid={file.childImageSharp.fluid} />
-            </BackgroundImageContainer>
-          )}
-          {children}
-        </Main>
-        <Footer>
-          {site.siteMetadata.links.map(({ site, name, url }) => (
-            <ExternalLink key={url} href={url}>
-              {site}: {name}
-            </ExternalLink>
-          ))}
-        </Footer>
-      </div>
+      <Header>
+        <Menu>
+          <MenuItem>
+            <MenuLink {...transition} activeClassName="active" to="/">
+              Inicio
+            </MenuLink>
+          </MenuItem>
+          <MenuItem>
+            <MenuLink {...transition} activeClassName="active" to="/temas">
+              Temas
+            </MenuLink>
+          </MenuItem>
+        </Menu>
+      </Header>
+      <Main background={background}>
+        {background && (
+          <BackgroundImageContainer>
+            <Image fluid={file.childImageSharp.fluid} />
+          </BackgroundImageContainer>
+        )}
+        {children}
+      </Main>
+      <Footer>
+        {site.siteMetadata.links.map(({ site, name, url }) => (
+          <ExternalLink key={url} href={url}>
+            {site}: {name}
+          </ExternalLink>
+        ))}
+      </Footer>
     </ThemeProvider>
   )
 }
