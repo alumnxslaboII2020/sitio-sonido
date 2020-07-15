@@ -24,11 +24,19 @@ const StyledTransitionLink = styled(TransitionLink)`
   }
 `;
 
+const Nav = styled.nav`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
 const LinksContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   list-style: none;
+  padding: 0;
   width: 100%;
 `;
 
@@ -90,7 +98,7 @@ const Tema = ({ data, pageContext, location }) => {
         <markdown.hr />
       </Article>
 
-      <nav>
+      <Nav>
         <LinksContainer>
           <li>
             {previous && (
@@ -123,7 +131,7 @@ const Tema = ({ data, pageContext, location }) => {
             )}
           </li>
         </LinksContainer>
-      </nav>
+      </Nav>
     </Layout>
   )
 }
