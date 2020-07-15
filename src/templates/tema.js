@@ -1,15 +1,15 @@
-import React, { createElement } from "react"
-import rehypeReact from "rehype-react"
+import React from "react"
+import styled from "@emotion/styled"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import astCompiler from "../utils/astCompiler"
 import markdown from "../components/markdown"
 
-const astCompiler = new rehypeReact({
-  createElement,
-  components: markdown,
-}).Compiler
+const Article = styled.article`
+  padding: 0 1rem;
+`
 
 const Tema = ({ data, pageContext, location }) => {
   const tema = data.markdownRemark
@@ -54,7 +54,7 @@ const Tema = ({ data, pageContext, location }) => {
       }}
     >
       <SEO title={titulo} description={descripcion || tema.excerpt} />
-      <article>
+      <Article>
         <header>
           <h1
             style={{
@@ -66,12 +66,8 @@ const Tema = ({ data, pageContext, location }) => {
           </h1>
         </header>
         <section>{astCompiler(tema.htmlAst)}</section>
-        <hr
-          style={{
-            marginBottom: "1rem ",
-          }}
-        />
-      </article>
+        <markdown.hr />
+      </Article>
 
       <nav>
         <ul
