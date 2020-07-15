@@ -1,15 +1,36 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import TransitionLink from "../components/transitionLink"
 import astCompiler from "../utils/astCompiler"
 import markdown from "../components/markdown"
 
 const Article = styled.article`
   padding: 0 1rem;
 `
+
+const StyledTransitionLink = styled(TransitionLink)`
+  box-shadow: 0 2px transparent;
+  color: ${({ theme }) => theme.links};
+  text-decoration: none;
+  transition: box-shadow 0.4s ease, color 0.4s ease;
+  &:focus,
+  &:hover {
+    box-shadow: 0 2px ${({ theme }) => theme.links_hover};
+    color: ${({ theme }) => theme.links_hover};
+  }
+`;
+
+const LinksContainer = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  width: 100%;
+`;
 
 const Tema = ({ data, pageContext, location }) => {
   const tema = data.markdownRemark
@@ -70,30 +91,38 @@ const Tema = ({ data, pageContext, location }) => {
       </Article>
 
       <nav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+        <LinksContainer>
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <StyledTransitionLink
+                color_transicion={color_transicion}
+                direccion_transicion={direccion_transicion}
+                duracion_transicion={duracion_transicion}
+                tapar_transicion={tapar_transicion}
+                transicion={transicion}
+                to={previous.fields.slug}
+                rel="prev"
+              >
                 ← {previous.frontmatter.titulo}
-              </Link>
+              </StyledTransitionLink>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <StyledTransitionLink
+                color_transicion={color_transicion}
+                direccion_transicion={direccion_transicion}
+                duracion_transicion={duracion_transicion}
+                tapar_transicion={tapar_transicion}
+                transicion={transicion}
+                to={next.fields.slug}
+                rel="next"
+              >
                 {next.frontmatter.titulo} →
-              </Link>
+              </StyledTransitionLink>
             )}
           </li>
-        </ul>
+        </LinksContainer>
       </nav>
     </Layout>
   )
