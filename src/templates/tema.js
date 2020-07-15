@@ -34,7 +34,7 @@ const Tema = ({ data, pageContext, location }) => {
 
   return (
     <Layout
-      location={location}
+      background={false}
       overrideTheme={{
         color_sitio,
         color_navegacion,

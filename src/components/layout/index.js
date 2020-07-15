@@ -1,4 +1,5 @@
 import React, { useMemo } from "react"
+import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
 import { ThemeProvider } from "emotion-theming"
@@ -64,7 +65,7 @@ const MenuLink = styled(TransitionLink)`
 
 const Main = styled.main`
   align-items: center;
-  background-color: ${({ theme }) => theme.background};
+  background-color: ${({ background, theme }) => background ? "transparent" : theme.background};
   color: ${({ theme }) => theme.color};
   display: flex;
   flex-direction: column;
@@ -74,6 +75,15 @@ const Main = styled.main`
   width: 100%;
 `
 
+const BackgroundImageContainer = styled.div`
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
+`
+
 const Footer = styled.footer`
   align-items: center;
   background-color: ${({ theme }) => theme.layout};
@@ -81,12 +91,26 @@ const Footer = styled.footer`
   display: flex;
   height: 6rem;
   width: 100%;
+  z-index: 2;
 `
 
-const Layout = ({ children, overrideTheme = {}, transition = {} }) => {
-  const { site } = useStaticQuery(
+const Layout = ({
+  background = true,
+  children,
+  overrideTheme = {},
+  transition = {},
+}) => {
+  const { file, site } = useStaticQuery(
     graphql`
       query {
+        file(name: { eq: "fondo" }, sourceInstanceName: { eq: "assets" }) {
+          name
+          childImageSharp {
+            fluid(grayscale: true) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         site {
           siteMetadata {
             title
@@ -141,26 +165,25 @@ const Layout = ({ children, overrideTheme = {}, transition = {} }) => {
         <Header>
           <Menu>
             <MenuItem>
-              <MenuLink
-                {...transition}
-                activeClassName="active"
-                to="/"
-              >
+              <MenuLink {...transition} activeClassName="active" to="/">
                 Inicio
               </MenuLink>
             </MenuItem>
             <MenuItem>
-              <MenuLink
-                {...transition}
-                activeClassName="active"
-                to="/temas"
-              >
+              <MenuLink {...transition} activeClassName="active" to="/temas">
                 Temas
               </MenuLink>
             </MenuItem>
           </Menu>
         </Header>
-        <Main>{children}</Main>
+        <Main background={background}>
+          {background && (
+            <BackgroundImageContainer>
+              <Image imgStyle={{ zIndex: 0 }} style={{ zIndex: 0 }} fluid={file.childImageSharp.fluid} />
+            </BackgroundImageContainer>
+          )}
+          {children}
+        </Main>
         <Footer>
           {site.siteMetadata.links.map(({ site, name, url }) => (
             <ExternalLink key={url} href={url}>
