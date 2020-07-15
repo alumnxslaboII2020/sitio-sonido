@@ -14,6 +14,7 @@ const Container = styled.div`
 `
 
 const Link = styled(TransitionLink)`
+  text-decoration: none;
   width: 100%;
 `
 
