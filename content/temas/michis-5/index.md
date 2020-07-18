@@ -8,10 +8,9 @@ imagen: "./foto.jpeg" # Tapa de la obra, tiene que estar guardada en la misma ca
 descripcion: Holis, acá hay michis con una transición de fade
 
 # Opcional transicion
-transicion: fade # Puede ser [crecer (crece desde donde se hizo click con un círculo hasta cubrir la pantalla), cubrir (una imagen/rectángulo que cubre toda la pantalla se desliza en alguna dirección), tapar (la página que entra o la que sale está cubriendo a la otra), fade]. Si no se especifica, es crecer por defecto
+transicion: fade # Puede ser [crecer (crece desde donde se hizo click con un círculo hasta cubrir la pantalla), cubrir (una imagen/rectángulo que cubre toda la pantalla se desliza en alguna dirección), fade]. Si no se especifica, es crecer por defecto
 color_transicion: "#000000" # Color (hexa) de la transición si no tiene imagen, es #000000 por defecto. Válido para transiciones [crecer, cubrir (sin imagen)]
 direccion_transicion: derecha # Puede ser [arriba, abajo, derecha, izquierda]. Si no se especifíca, es derecha por defecto. Válido para [cubrir]
-tapar_transicion: entrada # Puede ser [entrada, salida]. Si no se especifíca, es entrada por defecto. Válido para [tapar]
 duracion_transicion: 1 # Duración en segundos de la transición
 
 # Opcional estilos
@@ -25,7 +24,7 @@ color_links_hover: "#1C7293" # Color (css) del texto de los links del sitio cuan
 ---
 
 # Transicion
-- transicion: fade (Puede ser "crecer" - crece desde donde se hizo click con un círculo hasta cubrir la pantalla -, "cubrir" - un rectángulo que cubre toda la pantalla se desliza en alguna dirección -, "tapar" - la página que entra o la que sale está cubriendo a la otra -, "fade").
+- transicion: fade (Puede ser "crecer" - crece desde donde se hizo click con un círculo hasta cubrir la pantalla -, "cubrir" - un rectángulo que cubre toda la pantalla se desliza en alguna dirección -, "fade").
 
 # Estilos
 - color\_sitio: #000000 (Color de la barra superior e inferior del sitio en esta pantalla).
