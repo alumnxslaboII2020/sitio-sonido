@@ -3,6 +3,10 @@ import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
 import { ThemeProvider } from "emotion-theming"
+import {
+  TransitionPortal,
+  TransitionState,
+} from "gatsby-plugin-transition-link"
 import { useStaticQuery, graphql } from "gatsby"
 
 import ExternalLink from "../externalLink"
@@ -21,9 +25,6 @@ const globlalStyles = css`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    & .tl-wrapper.tl-wrapper-status--entered {
-      transform: none !important;
-    }
   }
 `
 
@@ -165,20 +166,32 @@ const Layout = ({
   return (
     <ThemeProvider theme={pageTheme}>
       <Global styles={globlalStyles} />
-      <Header>
-        <Menu>
-          <MenuItem>
-            <MenuLink {...transition} activeClassName="active" to="/">
-              Inicio
-            </MenuLink>
-          </MenuItem>
-          <MenuItem>
-            <MenuLink {...transition} activeClassName="active" to="/temas">
-              Temas
-            </MenuLink>
-          </MenuItem>
-        </Menu>
-      </Header>
+      <TransitionState>
+        {({ mount, transitionStatus }) => (
+          <TransitionPortal
+            level={mount && transitionStatus === "entered" ? "top" : "bottom"}
+          >
+            <Header>
+              <Menu>
+                <MenuItem>
+                  <MenuLink {...transition} activeClassName="active" to="/">
+                    Inicio
+                  </MenuLink>
+                </MenuItem>
+                <MenuItem>
+                  <MenuLink
+                    {...transition}
+                    activeClassName="active"
+                    to="/temas"
+                  >
+                    Temas
+                  </MenuLink>
+                </MenuItem>
+              </Menu>
+            </Header>
+          </TransitionPortal>
+        )}
+      </TransitionState>
       <Main background={background}>
         {background && (
           <BackgroundImageContainer>
