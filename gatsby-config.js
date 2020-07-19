@@ -7,9 +7,6 @@ module.exports = {
     },
     description: `Proyecto fonográfico LABO II 2020`,
     siteUrl: `https://pandemi-ae.vercel.app/`,
-    social: {
-      twitter: `kylemathews`, // TODO change
-    },
     links: [
       {
         site: "youtube",

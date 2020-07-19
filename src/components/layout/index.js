@@ -116,9 +116,6 @@ const Layout = ({
           siteMetadata {
             title
             description
-            social {
-              twitter
-            }
             links {
               site
               name
