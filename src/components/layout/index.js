@@ -101,7 +101,11 @@ const Layout = ({ background = true, children, transition = {} }) => {
   const { file, site } = useStaticQuery(
     graphql`
       query {
-        file(extension: {eq: "png"}, name: {eq: "fondo_crop" }, sourceInstanceName: { eq: "assets" }) {
+        file(
+          extension: { eq: "png" }
+          name: { eq: "fondo_crop" }
+          sourceInstanceName: { eq: "assets" }
+        ) {
           name
           childImageSharp {
             fluid(grayscale: true) {
@@ -156,7 +160,11 @@ const Layout = ({ background = true, children, transition = {} }) => {
       <Main background={background}>
         {background && (
           <BackgroundImageContainer>
-            <Image loading="eager" fluid={file.childImageSharp.fluid} />
+            <Image
+              style={{ height: "100%" }}
+              loading="eager"
+              fluid={file.childImageSharp.fluid}
+            />
           </BackgroundImageContainer>
         )}
         {children}
