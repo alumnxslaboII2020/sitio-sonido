@@ -9,10 +9,16 @@ module.exports = {
     siteUrl: `https://pandemi-ae.vercel.app/`,
     links: [
       {
-        site: "youtube",
-        name: "Alumnxs Labo II",
+        icon: "youtube",
+        description: "Canal de YouTube",
         url:
           "https://www.youtube.com/channel/UCHPCyWLViJmn7FRdauLJMrw/featured",
+      },
+      {
+        icon: "instagram",
+        description: "@Pandemi.ae",
+        url:
+          "https://www.instagram.com/pandemi.ae/",
       }
     ]
   },

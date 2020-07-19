@@ -10,6 +10,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import ExternalLink from "../externalLink"
 import TransitionLink from "../transitionLink"
+import LinksList from "../linksList"
 
 const globlalStyles = css`
   * {
@@ -72,7 +73,7 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 8rem);
   padding: 4rem 0 0 0;
   width: 100%;
 `
@@ -91,16 +92,13 @@ const Footer = styled.footer`
   background-color: ${({ theme }) => theme.layout};
   color: ${({ theme }) => theme.layout_links};
   display: flex;
-  height: 6rem;
-  width: 100%;
+  justify-content: center;
+  min-height: 4rem;
+  padding: 0 1rem;
   z-index: 2;
 `
 
-const Layout = ({
-  background = true,
-  children,
-  transition = {},
-}) => {
+const Layout = ({ background = true, children, transition = {} }) => {
   const { file, site } = useStaticQuery(
     graphql`
       query {
@@ -117,8 +115,8 @@ const Layout = ({
             title
             description
             links {
-              site
-              name
+              description
+              icon
               url
             }
           }
@@ -165,11 +163,7 @@ const Layout = ({
         {children}
       </Main>
       <Footer>
-        {site.siteMetadata.links.map(({ site, name, url }) => (
-          <ExternalLink key={url} href={url}>
-            {site}: {name}
-          </ExternalLink>
-        ))}
+        <LinksList links={site.siteMetadata.links} />
       </Footer>
     </>
   )

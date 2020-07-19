@@ -5,11 +5,14 @@ import { AudioPlayerContext } from "../context/audioPlayerContext"
 
 // TODO add player colors?
 const rhap_theme_color = ({ theme }) => theme.layout_links // theme.player_theme_color
-const rhap_background_color = ({ theme }) => theme.layout
 const rhap_bar_color = ({ theme }) => theme.layout_links // theme.player_bar_color
 const rhap_time_color = ({ theme }) => theme.layout_links // theme.player_time_color
 
 const AudioPlayerContainer = styled.div`
+  background-color: ${({ theme }) => theme.layout};
+  padding-bottom: 0.5rem;
+  transition: background 0.4s ease;
+
   .rhap_container {
     box-sizing: border-box;
     display: flex;
@@ -18,15 +21,14 @@ const AudioPlayerContainer = styled.div`
     font-family: inherit;
     width: 100%;
     padding: 10px 15px;
-    background-color: ${rhap_background_color};
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.2);
+    background-color: transparent;
 
     &:focus:not(:focus-visible) {
       outline: 0;
     }
 
     svg {
-      vertical-align: initial; // overwrite Bootstrap default
+      vertical-align: initial;
     }
   }
 
@@ -184,7 +186,7 @@ const AudioPlayerContainer = styled.div`
   .rhap_play-pause-button {
     font-size: 40px;
     width: 40px;
-    height: 40px;
+    height: 42px;
   }
 
   .rhap_volume-controls {
@@ -275,7 +277,6 @@ const AudioPlayerContainer = styled.div`
 
 function AudioPlayer() {
   const { currentPlaying } = useContext(AudioPlayerContext)
-  console.log(currentPlaying)
   return (
     <AudioPlayerContainer>
       <H5AudioPlayer src={currentPlaying} defaultCurrentTime="00:00" volume={0.5} />

@@ -3,6 +3,7 @@ import { ThemeProvider } from "emotion-theming"
 import { Context as TransitionContext } from "gatsby-plugin-transition-link/context/createTransitionContext"
 
 import usePrevious from "../hooks/usePrevious"
+import { IconContext } from "react-icons/lib"
 
 const THEME_MAPPER = {
   color_sitio: "layout",
@@ -59,9 +60,16 @@ function Theme({ children, overrideTheme = {} }) {
   )
   const previousTheme = usePrevious(theme)
 
+  const currentTheme = useMemo(
+    () => (!inTransition && exitLength === 0 ? theme : previousTheme),
+    [exitLength, inTransition, previousTheme, theme]
+  )
+
   return (
-    <ThemeProvider theme={!inTransition && exitLength === 0 ? theme : previousTheme}>
-      {children}
+    <ThemeProvider theme={currentTheme}>
+      <IconContext.Provider value={{ color: currentTheme.layout_links }}>
+        {children}
+      </IconContext.Provider>
     </ThemeProvider>
   )
 }
