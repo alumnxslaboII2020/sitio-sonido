@@ -8,7 +8,6 @@ import {
 } from "gatsby-plugin-transition-link"
 import { useStaticQuery, graphql } from "gatsby"
 
-import ExternalLink from "../externalLink"
 import TransitionLink from "../transitionLink"
 import LinksList from "../linksList"
 
@@ -102,7 +101,7 @@ const Layout = ({ background = true, children, transition = {} }) => {
   const { file, site } = useStaticQuery(
     graphql`
       query {
-        file(name: { eq: "fondo" }, sourceInstanceName: { eq: "assets" }) {
+        file(extension: {eq: "png"}, name: {eq: "fondo_crop" }, sourceInstanceName: { eq: "assets" }) {
           name
           childImageSharp {
             fluid(grayscale: true) {
