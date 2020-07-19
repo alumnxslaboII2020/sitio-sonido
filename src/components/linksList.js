@@ -29,8 +29,8 @@ function LinksList({ links }) {
   return (
     <List>
       {links.map(({ description, icon, url }) => (
-        <Item>
-          <ExternalLink key={url} href={url}>
+        <Item key={url}>
+          <ExternalLink href={url}>
             <Icon name={icon} />
             <Description>{description}</Description>
           </ExternalLink>
