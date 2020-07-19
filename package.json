@@ -32,7 +32,9 @@
     "gsap": "^3.3.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-h5-audio-player": "^3.2.0",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.10.0",
     "react-masonry-css": "^1.0.14",
     "rehype-react": "^6.0.0"
   },

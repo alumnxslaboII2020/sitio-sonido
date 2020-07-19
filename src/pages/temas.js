@@ -56,12 +56,12 @@ const ArticleImage = styled.div`
   min-width: 60px;
 `;
 
-const Temas = ({ data, location }) => {
+const Temas = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="Lista de temas" />
       <Container>
         {posts.map(({ node }, index) => {
@@ -72,21 +72,20 @@ const Temas = ({ data, location }) => {
             color_transicion,
             direccion_transicion,
             duracion_transicion,
-            tapar_transicion,
             transicion,
           } = node.frontmatter
           return (
             <Link
+              key={node.fields.slug}
               color_transicion={
                 transicion !== "cubrir" ? color_transicion : "#000"
               }
               direccion_transicion={direccion_transicion}
               duracion_transicion={duracion_transicion}
-              tapar_transicion={tapar_transicion}
               transicion={transicion}
               to={node.fields.slug}
             >
-              <Article key={node.fields.slug}>
+              <Article>
                 <ArticleNumber>{index + 1}</ArticleNumber>
                 <ArticleTitle>{titulo}</ArticleTitle>
                 <ArticleDescription>
@@ -126,7 +125,6 @@ export const pageQuery = graphql`
             color_transicion
             direccion_transicion
             duracion_transicion
-            tapar_transicion
             transicion
             imagen {
               childImageSharp {

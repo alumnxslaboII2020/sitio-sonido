@@ -1,8 +1,7 @@
-import React, { useMemo } from "react"
+import React from "react"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
-import { ThemeProvider } from "emotion-theming"
 import {
   TransitionPortal,
   TransitionState,
@@ -11,8 +10,6 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import ExternalLink from "../externalLink"
 import TransitionLink from "../transitionLink"
-
-import theme, { THEME_MAPPER } from "./theme"
 
 const globlalStyles = css`
   * {
@@ -102,7 +99,6 @@ const Footer = styled.footer`
 const Layout = ({
   background = true,
   children,
-  overrideTheme = {},
   transition = {},
 }) => {
   const { file, site } = useStaticQuery(
@@ -133,38 +129,9 @@ const Layout = ({
       }
     `
   )
-  const pageTheme = useMemo(
-    () => ({
-      [THEME_MAPPER.color_sitio]:
-        overrideTheme.color_sitio || theme[THEME_MAPPER.color_sitio],
-      [THEME_MAPPER.color_navegacion]:
-        overrideTheme.color_navegacion || theme[THEME_MAPPER.color_navegacion],
-      [THEME_MAPPER.color_navegacion_hover]:
-        overrideTheme.color_navegacion_hover ||
-        theme[THEME_MAPPER.color_navegacion_hover],
-      [THEME_MAPPER.color_fondo]:
-        overrideTheme.color_fondo || theme[THEME_MAPPER.color_fondo],
-      [THEME_MAPPER.color_letra]:
-        overrideTheme.color_letra || theme[THEME_MAPPER.color_letra],
-      [THEME_MAPPER.color_links]:
-        overrideTheme.color_links || theme[THEME_MAPPER.color_links],
-      [THEME_MAPPER.color_links_hover]:
-        overrideTheme.color_links_hover ||
-        theme[THEME_MAPPER.color_links_hover],
-    }),
-    [
-      overrideTheme.color_fondo,
-      overrideTheme.color_letra,
-      overrideTheme.color_links,
-      overrideTheme.color_links_hover,
-      overrideTheme.color_navegacion,
-      overrideTheme.color_navegacion_hover,
-      overrideTheme.color_sitio,
-    ]
-  )
 
   return (
-    <ThemeProvider theme={pageTheme}>
+    <>
       <Global styles={globlalStyles} />
       <TransitionState>
         {({ mount, transitionStatus }) => (
@@ -195,7 +162,7 @@ const Layout = ({
       <Main background={background}>
         {background && (
           <BackgroundImageContainer>
-            <Image fluid={file.childImageSharp.fluid} />
+            <Image loading="eager" fluid={file.childImageSharp.fluid} />
           </BackgroundImageContainer>
         )}
         {children}
@@ -207,7 +174,7 @@ const Layout = ({
           </ExternalLink>
         ))}
       </Footer>
-    </ThemeProvider>
+    </>
   )
 }
 

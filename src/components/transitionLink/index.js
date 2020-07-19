@@ -7,27 +7,24 @@ function TransitionLink({
   color_transicion,
   direccion_transicion,
   duracion_transicion,
-  tapar_transicion,
   to,
   transicion,
   ...props
 }) {
   const transition = useMemo(
     () => ({
-      [TRANSITIONS_MAPPER.transicion[transicion || "crecer"]]: true,
-      bg: color_transicion ||  "#000",
-      hex: color_transicion ||  "#000",
-      direction: TRANSITIONS_MAPPER.direccion_transicion[direccion_transicion || "derecha"],
+      [TRANSITIONS_MAPPER.transicion[transicion] ||
+      TRANSITIONS_MAPPER.transicion.default]: true,
+      bg: color_transicion || "#000",
+      hex: color_transicion || "#000",
+      direction:
+        TRANSITIONS_MAPPER.direccion_transicion[
+          direccion_transicion ||
+            TRANSITIONS_MAPPER.direccion_transicion.default
+        ],
       duration: duracion_transicion || 1,
-      top: TRANSITIONS_MAPPER.tapar_transicion[tapar_transicion || "entrada"],
     }),
-    [
-      color_transicion,
-      direccion_transicion,
-      duracion_transicion,
-      tapar_transicion,
-      transicion,
-    ]
+    [color_transicion, direccion_transicion, duracion_transicion, transicion]
   )
   return (
     <AniLink {...props} {...transition} to={to}>

@@ -47,38 +47,20 @@ const Tema = ({ data, pageContext, location }) => {
   const {
     titulo,
     descripcion,
-    color_sitio,
-    color_navegacion,
-    color_navegacion_hover,
-    color_fondo,
-    color_letra,
-    color_links,
-    color_links_hover,
     color_transicion,
     direccion_transicion,
     duracion_transicion,
-    tapar_transicion,
     transicion,
   } = tema.frontmatter
 
   return (
     <Layout
       background={false}
-      overrideTheme={{
-        color_sitio,
-        color_navegacion,
-        color_navegacion_hover,
-        color_fondo,
-        color_letra,
-        color_links,
-        color_links_hover,
-      }}
       title={siteTitle}
       transition={{
         color_transicion,
         direccion_transicion,
         duracion_transicion,
-        tapar_transicion,
         transicion,
       }}
     >
@@ -106,7 +88,6 @@ const Tema = ({ data, pageContext, location }) => {
                 color_transicion={color_transicion}
                 direccion_transicion={direccion_transicion}
                 duracion_transicion={duracion_transicion}
-                tapar_transicion={tapar_transicion}
                 transicion={transicion}
                 to={previous.fields.slug}
                 rel="prev"
@@ -121,7 +102,6 @@ const Tema = ({ data, pageContext, location }) => {
                 color_transicion={color_transicion}
                 direccion_transicion={direccion_transicion}
                 duracion_transicion={duracion_transicion}
-                tapar_transicion={tapar_transicion}
                 transicion={transicion}
                 to={next.fields.slug}
                 rel="next"
@@ -150,8 +130,6 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       htmlAst
       frontmatter {
-        titulo
-        descripcion
         color_sitio
         color_navegacion
         color_navegacion_hover
@@ -159,10 +137,11 @@ export const pageQuery = graphql`
         color_letra
         color_links
         color_links_hover
+        titulo
+        descripcion
         color_transicion
         direccion_transicion
         duracion_transicion
-        tapar_transicion
         transicion
       }
     }

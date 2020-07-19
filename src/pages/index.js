@@ -58,12 +58,11 @@ const ImageContainer = styled.div`
   }
 `
 
-const Inicio = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+const Inicio = ({ data }) => {
   const temas = data.allMarkdownRemark.edges
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <SEO title="Inicio" />
       {data.file && (
         <BannerContainer>
@@ -93,7 +92,6 @@ const Inicio = ({ data, location }) => {
               color_transicion,
               direccion_transicion,
               duracion_transicion,
-              tapar_transicion,
               transicion,
             } = node.frontmatter
             return (
@@ -104,7 +102,6 @@ const Inicio = ({ data, location }) => {
                   }
                   direccion_transicion={direccion_transicion}
                   duracion_transicion={duracion_transicion}
-                  tapar_transicion={tapar_transicion}
                   transicion={transicion}
                   to={node.fields.slug}
                 >
@@ -127,11 +124,6 @@ export default Inicio
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
     file(name: { eq: "tarjeta" }, sourceInstanceName: { eq: "assets" }) {
       name
       childImageSharp {
@@ -151,7 +143,6 @@ export const pageQuery = graphql`
             color_transicion
             direccion_transicion
             duracion_transicion
-            tapar_transicion
             transicion
             imagen {
               childImageSharp {
