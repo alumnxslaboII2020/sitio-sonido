@@ -23,18 +23,18 @@ const Item = styled.li`
 
 const Description = styled.span`
   margin-left: 8px;
-`;
+`
 
 function LinksList({ links }) {
   return (
     <List>
       {links.map(({ description, icon, url }) => (
-        <ExternalLink key={url} href={url}>
-          <Item>
+        <Item>
+          <ExternalLink key={url} href={url}>
             <Icon name={icon} />
             <Description>{description}</Description>
-          </Item>
-        </ExternalLink>
+          </ExternalLink>
+        </Item>
       ))}
     </List>
   )
