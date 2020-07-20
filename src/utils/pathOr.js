@@ -1,6 +1,7 @@
 function pathOr(fallbackValue = undefined, path = [], object = {}) {
   if (!Array.isArray(path)) throw new Error("path variable must be an array")
-  if (path.length === 0) return fallbackValue
+  if (path.length === 0 || typeof object !== "object" || object === null)
+    return fallbackValue
   const [key, ...rest] = path
   return path.length === 1
     ? object[key] || fallbackValue
