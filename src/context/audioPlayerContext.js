@@ -1,24 +1,27 @@
-import React, { createContext, useRef, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import React, { createContext, useEffect, useRef, useState } from "react"
+
+import api from "../utils/api"
+import useFetch from "../hooks/useFetch"
+import pathOr from "../utils/pathOr"
 
 export const AudioPlayerContext = createContext()
 
 function AudioPlayerProvider({ children }) {
-  const data = useStaticQuery(graphql`
-    {
-      file(name: { eq: "test" }) {
-        publicURL
-      }
-    }
-  `)
+  const data = useFetch(api.getSongByOrder)
 
-  
-  const [currentPlaying, setCurrentPlaying] = useState(data.file.publicURL)
+  const [currentPlaying, setCurrentPlaying] = useState(null)
+
+  useEffect(() => {
+    const song = data && pathOr("", ["response", "body", "archivo", "asset", "url"], data)
+    if (data) setCurrentPlaying(song)
+  }, [data])
+
   const allSongs = useRef().current
 
   return (
     <AudioPlayerContext.Provider
       value={{
+        loading: !data,
         currentPlaying,
         setCurrentPlaying,
         allSongs,
