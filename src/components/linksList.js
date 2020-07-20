@@ -17,8 +17,9 @@ const List = styled.ul`
 const Item = styled.li`
   align-items: center;
   display: flex;
-  justify-content: center;
   flex: 1;
+  justify-content: center;
+  white-space: nowrap;
 `
 
 const Description = styled.span`
