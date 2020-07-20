@@ -1,17 +1,27 @@
 import React, { useContext } from "react"
 import H5AudioPlayer from "react-h5-audio-player"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+
 import { AudioPlayerContext } from "../context/audioPlayerContext"
+
+import Loading from "./loading"
 
 // TODO add player colors?
 const rhap_theme_color = ({ theme }) => theme.layout_links // theme.player_theme_color
 const rhap_bar_color = ({ theme }) => theme.layout_links // theme.player_bar_color
 const rhap_time_color = ({ theme }) => theme.layout_links // theme.player_time_color
 
+const loadingMixin = css`
+  margin-top: -1.5rem;
+  padding-top: 1.5rem;
+`
+
 const AudioPlayerContainer = styled.div`
   background-color: ${({ theme }) => theme.layout};
   padding-bottom: 0.5rem;
   transition: background 0.4s ease;
+  ${({ loading }) => loading ? loadingMixin : ""}
 
   .rhap_container {
     box-sizing: border-box;
@@ -276,10 +286,18 @@ const AudioPlayerContainer = styled.div`
 `
 
 function AudioPlayer() {
-  const { currentPlaying } = useContext(AudioPlayerContext)
+  const { currentPlaying, loading } = useContext(AudioPlayerContext)
   return (
-    <AudioPlayerContainer>
-      <H5AudioPlayer src={currentPlaying} defaultCurrentTime="00:00" volume={0.5} />
+    <AudioPlayerContainer loading={loading ? "true" : ""}>
+      {loading ? (
+        <Loading />
+      ) : (
+        <H5AudioPlayer
+          src={currentPlaying}
+          defaultCurrentTime="00:00"
+          volume={0.5}
+        />
+      )}
     </AudioPlayerContainer>
   )
 }

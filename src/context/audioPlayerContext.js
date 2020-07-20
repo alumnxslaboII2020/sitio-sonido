@@ -21,7 +21,7 @@ function AudioPlayerProvider({ children }) {
   return (
     <AudioPlayerContext.Provider
       value={{
-        loading: !data,
+        loading: !currentPlaying,
         currentPlaying,
         setCurrentPlaying,
         allSongs,
