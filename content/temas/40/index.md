@@ -1,9 +1,9 @@
 ---
-titulo: "AFUERA"
-artista: "LVC"
-instagram: "@lvcprodu"
-orden: 2
-imagen: "./02.png"
+titulo: "In Cierto"
+artista: "Juan Borzi"
+instagram: ""
+orden: 40
+imagen: "./40.png"
 
 transicion: crecer
 color_transicion: "#000000"

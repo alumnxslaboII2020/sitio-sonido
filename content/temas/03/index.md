@@ -1,9 +1,9 @@
 ---
-titulo: "AFUERA"
-artista: "LVC"
-instagram: "@lvcprodu"
-orden: 2
-imagen: "./02.png"
+titulo: "Todo lok hiciste"
+artista: "Jimena Varon"
+instagram: "@mateoherman"
+orden: 3
+# imagen: "./03.png"
 
 transicion: crecer
 color_transicion: "#000000"

@@ -1,9 +1,9 @@
 ---
-titulo: "AFUERA"
-artista: "LVC"
-instagram: "@lvcprodu"
-orden: 2
-imagen: "./02.png"
+titulo: "Consumo"
+artista: "Fran Jimeno"
+instagram: "@fran_jimeno"
+orden: 29
+# imagen: "./29.png"
 
 transicion: crecer
 color_transicion: "#000000"

@@ -1,9 +1,9 @@
 ---
-titulo: "AFUERA"
-artista: "LVC"
-instagram: "@lvcprodu"
-orden: 2
-imagen: "./02.png"
+titulo: "transformacion "
+artista: "skinny"
+instagram: "@skinnyrams"
+orden: 37
+imagen: "./37.png"
 
 transicion: crecer
 color_transicion: "#000000"
