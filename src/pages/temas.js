@@ -10,7 +10,7 @@ import astCompiler from "../utils/astCompiler"
 
 const Container = styled.div`
   min-width: 360px;
-  width: 80%
+  width: 80%;
 `
 
 const Link = styled(TransitionLink)`
@@ -54,7 +54,7 @@ const ArticleImage = styled.div`
   margin-left: 16px;
   min-height: 60px;
   min-width: 60px;
-`;
+`
 
 const Temas = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -67,7 +67,6 @@ const Temas = ({ data }) => {
         {posts.map(({ node }, index) => {
           const titulo = node.frontmatter.titulo || node.fields.slug
           const {
-            descripcion,
             imagen,
             color_transicion,
             direccion_transicion,
@@ -89,7 +88,7 @@ const Temas = ({ data }) => {
                 <ArticleNumber>{index + 1}</ArticleNumber>
                 <ArticleTitle>{titulo}</ArticleTitle>
                 <ArticleDescription>
-                  {descripcion ? descripcion : astCompiler(node.excerptAst)}
+                  {astCompiler(node.excerptAst)}
                 </ArticleDescription>
                 <ArticleImage>
                   {imagen && <Image fluid={imagen.childImageSharp.fluid} />}
@@ -121,7 +120,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             titulo
-            descripcion
             color_transicion
             direccion_transicion
             duracion_transicion

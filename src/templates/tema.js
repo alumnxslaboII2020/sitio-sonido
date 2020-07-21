@@ -46,7 +46,6 @@ const Tema = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
   const {
     titulo,
-    descripcion,
     color_transicion,
     direccion_transicion,
     duracion_transicion,
@@ -64,7 +63,7 @@ const Tema = ({ data, pageContext, location }) => {
         transicion,
       }}
     >
-      <SEO title={titulo} description={descripcion || tema.excerpt} />
+      <SEO title={titulo} description={tema.excerpt} />
       <Article>
         <header>
           <h1
@@ -138,7 +137,6 @@ export const pageQuery = graphql`
         color_links
         color_links_hover
         titulo
-        descripcion
         color_transicion
         direccion_transicion
         duracion_transicion
