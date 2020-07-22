@@ -3,7 +3,7 @@ export const TRANSITIONS_MAPPER = {
     crecer: "paintDrip",
     cubrir: "cover",
     fade: "fade",
-    default: "paintDrip"
+    default: "paintDrip",
   },
   direccion_transicion: {
     arriba: "up",
@@ -11,5 +11,5 @@ export const TRANSITIONS_MAPPER = {
     derecha: "right",
     izquierda: "left",
     default: "right",
-  }
-};
+  },
+}

@@ -9,7 +9,7 @@ const Anchor = styled.a`
   font-size: 1rem;
   justify-content: center;
   text-decoration: none;
-`;
+`
 
 const ExternalLink = ({ children, href }) => (
   <Anchor href={href} target="_blank" rel="noopener noreferrer">

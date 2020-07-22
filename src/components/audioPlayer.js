@@ -21,7 +21,7 @@ const AudioPlayerContainer = styled.div`
   background-color: ${({ theme }) => theme.layout};
   padding-bottom: 0.5rem;
   transition: background 0.4s ease;
-  ${({ loading }) => loading ? loadingMixin : ""}
+  ${({ loading }) => (loading ? loadingMixin : "")}
 
   .rhap_container {
     box-sizing: border-box;

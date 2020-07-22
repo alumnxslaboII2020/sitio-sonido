@@ -1,13 +1,14 @@
 import styled from "@emotion/styled"
 
 const a = styled.a`
-  box-shadow: 0 2px transparent;
+  border-bottom: solid 2px transparent;
   color: ${({ theme }) => theme.links};
+  padding-bottom: 2px;
   text-decoration: none;
-  transition: box-shadow 0.4s ease, color 0.4s ease;
+  transition: border-bottom 0.4s ease, color 0.4s ease;
   &:focus,
   &:hover {
-    box-shadow: 0 2px ${({ theme }) => theme.links_hover};
+    border-bottom-color: ${({ theme }) => theme.links_hover};
     color: ${({ theme }) => theme.links_hover};
   }
 `

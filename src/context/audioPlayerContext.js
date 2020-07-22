@@ -12,7 +12,8 @@ function AudioPlayerProvider({ children }) {
   const [currentPlaying, setCurrentPlaying] = useState(null)
 
   useEffect(() => {
-    const song = data && pathOr("", ["response", "body", "archivo", "asset", "url"], data)
+    const song =
+      data && pathOr("", ["response", "body", "archivo", "asset", "url"], data)
     if (data) setCurrentPlaying(song)
   }, [data])
 
