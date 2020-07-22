@@ -33,10 +33,13 @@ const Header = styled.nav`
   top: 0;
   width: 100%;
   z-index: 2;
-  /* TODO add video */
-  /* @media (max-width: 554px) {
-    height: 6rem;
-  } */
+  @media (max-width: 554px) {
+    /* TODO add video */
+    /* height: 6rem; */
+    justify-content: center;
+    display: flex;
+    padding: 0;
+  }
 `
 
 const Menu = styled.ul`
@@ -74,6 +77,9 @@ const menuLinkMixin = ({ theme }) => css`
   &:focus,
   &:hover {
     background-color: ${theme.layout_links_hover};
+  }
+  @media (max-width: 554px) {
+    font-size: 0.85rem;
   }
 `
 
