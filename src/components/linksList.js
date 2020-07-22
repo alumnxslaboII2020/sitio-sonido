@@ -26,15 +26,15 @@ const Description = styled.span`
   margin-left: 8px;
 `
 
-function LinksList({ links }) {
+function LinksList({ links, Link = ExternalLink }) {
   return (
     <List>
       {links.map(({ description, icon, url }) => (
         <Item key={url}>
-          <ExternalLink href={url}>
+          <Link href={url}>
             <Icon name={icon} />
             <Description>{description}</Description>
-          </ExternalLink>
+          </Link>
         </Item>
       ))}
     </List>

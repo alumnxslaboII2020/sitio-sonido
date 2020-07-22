@@ -28,6 +28,9 @@ const Title = styled.h1`
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 554px) {
+    flex-direction: column-reverse;
+  }
 `
 
 const ImageContainer = styled.div`
@@ -43,8 +46,26 @@ const Author = styled.div`
   flex: 1;
   flex-direction: column;
   font-size: 1.2rem;
+  @media (max-width: 554px) {
+    width: 100%;
+  }
 `
 
+const Link = styled.a`
+  border-bottom: solid 2px transparent;
+  color: ${({ theme }) => theme.links};
+  display: flex;
+  font-size: inherit;
+  line-height: inherit;
+  padding-bottom: 4px;
+  text-decoration: none;
+  transition: border-bottom 0.4s ease, color 0.4s ease;
+  &:focus,
+  &:hover {
+    border-bottom-color: ${({ theme }) => theme.links_hover};
+    color: ${({ theme }) => theme.links_hover};
+  }
+`
 const Nav = styled.nav`
   align-items: center;
   display: flex;
@@ -132,7 +153,7 @@ const Tema = ({ data, pageContext }) => {
           </ImageContainer>
           <Author>
             <p>Artista: {artista}</p>
-            <LinksList links={links} />
+            <LinksList Link={Link} links={links} />
           </Author>
         </Content>
         <section>{astCompiler(tema.htmlAst)}</section>
