@@ -19,6 +19,7 @@ const Item = styled.li`
   display: flex;
   flex: 1;
   justify-content: center;
+  padding: 8px 0;
   white-space: nowrap;
 `
 
