@@ -23,6 +23,9 @@ const Title = styled.h1`
   max-width: 90%;
   padding-bottom: 8px;
   width: 100%;
+  @media (max-width: 554px) {
+    font-size: 2rem;
+  }
 `
 
 const Content = styled.div`
