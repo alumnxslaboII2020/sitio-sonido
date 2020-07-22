@@ -1,12 +1,11 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-// TODO add styles
 const Anchor = styled.a`
   align-items: center;
   color: inherit;
   display: flex;
-  font-size: 1rem;
+  font-size: inherit;
   justify-content: center;
   text-decoration: none;
 `

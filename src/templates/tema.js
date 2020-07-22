@@ -42,6 +42,7 @@ const Author = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+  font-size: 1.2rem;
 `
 
 const Nav = styled.nav`

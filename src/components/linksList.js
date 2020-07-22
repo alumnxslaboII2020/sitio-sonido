@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import Icon from "./icon"
 import ExternalLink from "./externalLink"
+import Icon from "./icon"
 
 const List = styled.ul`
   display: flex;
