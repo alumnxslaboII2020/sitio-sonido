@@ -1,15 +1,54 @@
-import React from "react"
+import React, { useMemo } from "react"
+import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import LinksList from "../components/linksList"
 import SEO from "../components/seo"
 import TransitionLink from "../components/transitionLink"
 import astCompiler from "../utils/astCompiler"
-import markdown from "../components/markdown"
 
 const Article = styled.article`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 0 1rem;
+  width: 90%;
+`
+
+const Title = styled.h1`
+  border-bottom: 2px solid ${({ theme }) => theme.color};
+  font-size: 4rem;
+  max-width: 90%;
+  padding-bottom: 8px;
+  width: 100%;
+`
+
+const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
+const ImageContainer = styled.div`
+  flex: 1;
+  height: auto;
+  max-width: 500px;
+  width: auto;
+`
+
+const Author = styled.div`
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+`
+
+const Nav = styled.nav`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `
 
 const StyledTransitionLink = styled(TransitionLink)`
@@ -22,35 +61,44 @@ const StyledTransitionLink = styled(TransitionLink)`
     box-shadow: 0 2px ${({ theme }) => theme.links_hover};
     color: ${({ theme }) => theme.links_hover};
   }
-`;
-
-const Nav = styled.nav`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
+`
 
 const LinksContainer = styled.ul`
+  border-top: solid 2px ${({ theme }) => theme.color};
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   list-style: none;
-  padding: 0;
-  width: 100%;
-`;
+  padding: 1rem 0 0 0;
+  width: 90%;
+`
 
-const Tema = ({ data, pageContext, location }) => {
+const Tema = ({ data, pageContext }) => {
   const tema = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
   const {
-    titulo,
+    artista,
     color_transicion,
     direccion_transicion,
     duracion_transicion,
+    imagen,
+    instagram,
+    titulo,
     transicion,
   } = tema.frontmatter
+
+  const links = useMemo(
+    () =>
+      [
+        instagram && {
+          description: instagram,
+          icon: "instagram",
+          url: `https://instagram.com/${instagram.slice(1)}`,
+        },
+      ].filter(Boolean),
+    [instagram]
+  )
 
   return (
     <Layout
@@ -66,17 +114,27 @@ const Tema = ({ data, pageContext, location }) => {
       <SEO title={titulo} description={tema.excerpt} />
       <Article>
         <header>
-          <h1
-            style={{
-              marginTop: "1.5rem",
-              marginBottom: 0,
-            }}
-          >
-            {titulo}
-          </h1>
+          <Title>{titulo}</Title>
         </header>
+        <Content>
+          <ImageContainer>
+            {imagen && (
+              <Image
+                alt={titulo}
+                fluid={imagen.childImageSharp.fluid}
+                style={{
+                  height: "100%",
+                }}
+                title={titulo}
+              />
+            )}
+          </ImageContainer>
+          <Author>
+            <p>Artista: {artista}</p>
+            <LinksList links={links} />
+          </Author>
+        </Content>
         <section>{astCompiler(tema.htmlAst)}</section>
-        <markdown.hr />
       </Article>
 
       <Nav>
@@ -87,6 +145,7 @@ const Tema = ({ data, pageContext, location }) => {
                 color_transicion={color_transicion}
                 direccion_transicion={direccion_transicion}
                 duracion_transicion={duracion_transicion}
+                title={`Ir a ${previous.frontmatter.titulo}`}
                 transicion={transicion}
                 to={previous.fields.slug}
                 rel="prev"
@@ -101,6 +160,7 @@ const Tema = ({ data, pageContext, location }) => {
                 color_transicion={color_transicion}
                 direccion_transicion={direccion_transicion}
                 duracion_transicion={duracion_transicion}
+                title={`Ir a ${next.frontmatter.titulo}`}
                 transicion={transicion}
                 to={next.fields.slug}
                 rel="next"
@@ -129,17 +189,28 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       htmlAst
       frontmatter {
-        color_sitio
-        color_navegacion
-        color_navegacion_hover
+        artista
         color_fondo
         color_letra
         color_links
         color_links_hover
-        titulo
+        color_navegacion
+        color_navegacion_hover
+        color_sitio
         color_transicion
         direccion_transicion
         duracion_transicion
+        imagen {
+          childImageSharp {
+            fluid(maxWidth: 500) {
+              ...GatsbyImageSharpFluid_tracedSVG
+              presentationHeight
+              presentationWidth
+            }
+          }
+        }
+        instagram
+        titulo
         transicion
       }
     }
