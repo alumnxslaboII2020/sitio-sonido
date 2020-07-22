@@ -12,6 +12,8 @@ import TransitionLink from "../transitionLink"
 import LinksList from "../linksList"
 
 const globlalStyles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+
   * {
     font-family: "Major Mono Display", sans-serif;
   }

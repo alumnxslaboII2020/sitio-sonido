@@ -19,10 +19,10 @@
     "gatsby-plugin-google-analytics": "^2.3.6",
     "gatsby-plugin-manifest": "^2.4.14",
     "gatsby-plugin-offline": "^3.2.13",
+    "gatsby-plugin-preload-fonts": "^1.2.18",
     "gatsby-plugin-react-helmet": "^3.3.6",
     "gatsby-plugin-sharp": "^2.6.14",
     "gatsby-plugin-transition-link": "^1.20.2",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-copy-linked-files": "^2.3.7",
     "gatsby-remark-images": "^3.3.14",
     "gatsby-remark-responsive-iframe": "^2.4.7",
@@ -54,7 +54,8 @@
     "type": "git",
     "url": "git+https://github.com/alumnxslaboII2020/sitio-sonido.git"
   },
-  "scripts": {
+  "scripts": { 
+    "preload-fonts": "gatsby-preload-fonts",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
