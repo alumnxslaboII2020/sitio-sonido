@@ -1,4 +1,4 @@
-import React, {useCallback} from "react"
+import React, { useCallback } from "react"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
@@ -156,7 +156,10 @@ const Layout = ({ background = true, children, transition = {} }) => {
     `
   )
 
-  const scrollToBottom = useCallback(() => window.scrollTo(0,document.body.scrollHeight), [])
+  const scrollToBottom = useCallback(
+    () => window.scrollTo(0, document.body.scrollHeight),
+    []
+  )
 
   return (
     <>

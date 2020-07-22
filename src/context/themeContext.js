@@ -67,9 +67,7 @@ function Theme({ children, overrideTheme = {} }) {
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <IconContext.Provider
-        value={{ color: "inherit", size: "1.2rem" }}
-      >
+      <IconContext.Provider value={{ color: "inherit", size: "1.2rem" }}>
         {children}
       </IconContext.Provider>
     </ThemeProvider>
