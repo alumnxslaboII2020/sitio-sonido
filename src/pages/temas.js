@@ -6,10 +6,12 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import TransitionLink from "../components/transitionLink"
-import astCompiler from "../utils/astCompiler"
 
 const Container = styled.div`
+  border-radius: 4px;
+  box-shadow: 1px 2px 3px #000;
   min-width: 360px;
+  overflow: hidden;
   width: 80%;
 `
 
@@ -24,7 +26,7 @@ const Article = styled.article`
   color: ${({ theme }) => theme.color};
   display: flex;
   height: 150px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   overflow: hidden;
   padding: 0 0 0 2rem;
   @media (max-width: 768px) {
@@ -36,16 +38,13 @@ const Article = styled.article`
 `
 
 const ArticleNumber = styled.p`
-  flex: 1;
-`
-
-const ArticleTitle = styled.header`
-  flex: 3;
-  padding: 0 8px;
+  width: 40px;
 `
 
 const ArticleDescription = styled.p`
   flex: 3;
+  font-size: 1rem;
+  line-height: 1.5rem;
   padding: 0 8px;
 `
 
@@ -53,6 +52,7 @@ const ArticleImage = styled.div`
   flex: 1;
   margin-left: 16px;
   min-height: 60px;
+  max-width: 150px;
   min-width: 60px;
 `
 
@@ -64,10 +64,13 @@ const Temas = ({ data }) => {
     <Layout title={siteTitle}>
       <SEO title="Lista de temas" />
       <Container>
-        {posts.map(({ node }, index) => {
+        {posts.map(({ node }) => {
           const titulo = node.frontmatter.titulo || node.fields.slug
+          const { orden } = node.frontmatter
           const {
             imagen,
+            artista,
+            // TODO agregar instagram,
             color_transicion,
             direccion_transicion,
             duracion_transicion,
@@ -76,19 +79,20 @@ const Temas = ({ data }) => {
           return (
             <Link
               key={node.fields.slug}
+              aria-label={`Ir al tema: ${titulo}`}
               color_transicion={
                 transicion !== "cubrir" ? color_transicion : "#000"
               }
               direccion_transicion={direccion_transicion}
               duracion_transicion={duracion_transicion}
+              title={titulo}
               transicion={transicion}
               to={node.fields.slug}
             >
               <Article>
-                <ArticleNumber>{index + 1}</ArticleNumber>
-                <ArticleTitle>{titulo}</ArticleTitle>
+                <ArticleNumber>{orden}</ArticleNumber>
                 <ArticleDescription>
-                  {astCompiler(node.excerptAst)}
+                  {titulo} ~ by {artista}
                 </ArticleDescription>
                 <ArticleImage>
                   {imagen && <Image fluid={imagen.childImageSharp.fluid} />}
@@ -120,6 +124,9 @@ export const pageQuery = graphql`
           }
           frontmatter {
             titulo
+            artista
+            instagram
+            orden
             color_transicion
             direccion_transicion
             duracion_transicion
