@@ -1,11 +1,8 @@
 // TODO revise
 module.exports = {
   siteMetadata: {
-    title: `AAEE DISCO 2020`,
-    author: {
-      name: `Resonancia colectiva: encuentros electroacústicos en laboratorios improvisados`,
-    },
-    description: `Proyecto fonográfico LABO II 2020`,
+    title: `Resonancia Colectiva`,
+    description: `Encuentros electroacústicos en laboratorios improvisados`,
     siteUrl: `https://pandemi-ae.vercel.app/`,
     links: [
       {
@@ -17,10 +14,9 @@ module.exports = {
       {
         icon: "instagram",
         description: "@Pandemi.ae",
-        url:
-          "https://www.instagram.com/pandemi.ae/",
-      }
-    ]
+        url: "https://www.instagram.com/pandemi.ae/",
+      },
+    ],
   },
   plugins: [
     {
@@ -84,7 +80,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Poppins"],
+          families: ["Major Mono Display"],
         },
       },
     },
