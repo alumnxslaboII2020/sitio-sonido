@@ -13,7 +13,7 @@ import LinksList from "../linksList"
 
 const globlalStyles = css`
   * {
-    font-family: "Poppins", sans-serif;
+    font-family: "Major Mono Display", sans-serif;
   }
   html {
     scroll-behavior: smooth;
@@ -72,8 +72,8 @@ const Main = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(100vh - 8rem);
-  padding: 4rem 0 0 0;
+  min-height: calc(100vh - 10rem);
+  padding: 5rem 0 1rem 0;
   width: 100%;
 `
 
@@ -139,14 +139,22 @@ const Layout = ({ background = true, children, transition = {} }) => {
             <Header>
               <Menu>
                 <MenuItem>
-                  <MenuLink {...transition} activeClassName="active" to="/">
+                  <MenuLink
+                    {...transition}
+                    title="Ir a inicio"
+                    activeClassName="active"
+                    aria-label="Ir a inicio"
+                    to="/"
+                  >
                     Inicio
                   </MenuLink>
                 </MenuItem>
                 <MenuItem>
                   <MenuLink
                     {...transition}
+                    title="Ir a lista de temas"
                     activeClassName="active"
+                    aria-label="Ir a lista de temas"
                     to="/temas"
                   >
                     Temas
