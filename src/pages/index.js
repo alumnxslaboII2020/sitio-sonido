@@ -24,12 +24,16 @@ const MasonryContainer = styled.div`
 
 const Banner = styled.div`
   height: auto;
+  margin-top: 2rem;
   width: 40%;
+  @media (max-width: 1000px) {
+    width: 50%;
+  }
   @media (max-width: 768px) {
     width: 60%;
   }
   @media (max-width: 554px) {
-    width: 80%;
+    width: 90%;
   }
 `
 
@@ -37,6 +41,44 @@ const BannerContainer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+`
+
+const About = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem 3rem 1rem;
+`
+
+const Title = styled.h1`
+  border-bottom: 2px solid ${({ theme }) => theme.color};
+  font-weight: bold;
+  font-size: 3.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 1px 2px 3px #000;
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+`
+
+const DescriptionContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`
+
+const Description = styled.p`
+  font-size: 1.2rem;
+  max-width: 35%;
+  padding: 0.5rem;
+  text-shadow: 1px 2px 3px #000;
+  @media (max-width: 768px) {
+    font-size: inherit;
+    max-width: 90%;
+  }
 `
 
 const ImageContainer = styled.div`
@@ -74,6 +116,33 @@ const Inicio = ({ data }) => {
           </Banner>
         </BannerContainer>
       )}
+
+      <About>
+        <Title>Resonancia Colectiva - AAEE 2020</Title>
+        <DescriptionContainer>
+          <Description>
+            Paisaje sonoro/collage multidimensional colaborativo compuesto a
+            partir de sonidos específicos, creados desde registros sonoros de
+            fuentes electromagnéticas, mecánicas y físicas, acusmatizadas
+            natural y analógicamente, editadas y ensambladas digitalmente. 
+          </Description>
+          <Description>
+            47 artistas, 47 obras de 1 minuto cada una, ensambladas para así
+            formar un paisaje sonoro constantemente cambiante y evolutivo.
+          </Description>
+          <Description>
+            Los sonidos registrados, acusmatizados y editados fueron puestos a
+            disposición de todxs lxs artistas, creando así un banco de sonido de
+            aproximadamente 1500 sonidos para ser usados libremente en las
+            composiciones
+          </Description>
+          <Description>
+            Como resultado: un proyecto sonoro colaborativo, con un banco de
+            sonidos comunitario compuesto por todxs lxs artistas de este LP
+          </Description>
+        </DescriptionContainer>
+      </About>
+
       <MasonryContainer>
         <Masonry
           breakpointCols={{
@@ -88,15 +157,17 @@ const Inicio = ({ data }) => {
         >
           {temas.map(({ node }) => {
             const {
-              imagen,
               color_transicion,
               direccion_transicion,
               duracion_transicion,
+              imagen,
+              titulo,
               transicion,
             } = node.frontmatter
             return (
               <article key={node.fields.slug}>
                 <TransitionLink
+                  aria-label={`Ir al tema: ${titulo}`}
                   color_transicion={
                     transicion === "cubrir" ? "#000" : color_transicion
                   }
@@ -107,7 +178,11 @@ const Inicio = ({ data }) => {
                 >
                   {imagen && (
                     <ImageContainer>
-                      <Image fluid={imagen.childImageSharp.fluid} />
+                      <Image
+                        alt={titulo}
+                        fluid={imagen.childImageSharp.fluid}
+                        title={titulo}
+                      />
                     </ImageContainer>
                   )}
                 </TransitionLink>
@@ -143,6 +218,7 @@ export const pageQuery = graphql`
             color_transicion
             direccion_transicion
             duracion_transicion
+            titulo
             transicion
             imagen {
               childImageSharp {
