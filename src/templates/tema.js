@@ -89,7 +89,7 @@ const LinksContainer = styled.ul`
   border-top: solid 2px ${({ theme }) => theme.color};
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   list-style: none;
   padding: 1rem 0 0 0;
   width: 90%;
