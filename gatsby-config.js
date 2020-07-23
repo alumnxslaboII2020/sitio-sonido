@@ -6,6 +6,12 @@ module.exports = {
     siteUrl: `https://pandemi-ae.vercel.app/`,
     links: [
       {
+        icon: "bandcamp",
+        description: "Bandcamp",
+        url:
+          "https://aaxee.bandcamp.com/",
+      },
+      {
         icon: "youtube",
         description: "Canal de YouTube",
         url:
