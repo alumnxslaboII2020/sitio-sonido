@@ -5,6 +5,7 @@ instagram: "@amorfx"
 orden: 13
 imagen: "./13.png"
 tiempo: "11:15"
+tema: "./13.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

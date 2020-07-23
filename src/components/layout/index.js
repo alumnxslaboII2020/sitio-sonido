@@ -109,7 +109,7 @@ const MenuAction = styled.button`
   ${menuLinkMixin}
 `
 
-const floatingButtonMixin = ({theme}) => css`
+const floatingButtonMixin = ({ theme }) => css`
   align-items: center;
   appearance: none;
   background-color: transparent;
@@ -178,7 +178,11 @@ const Footer = styled.footer`
 `
 
 function HeaderComponent({ mount, transition, transitionStatus }) {
-  const { audioPlayer } = useContext(AudioPlayerContext)
+  const {
+    audioPlayer,
+    mainTrack,
+    setCurrentPlaying,
+  } = useContext(AudioPlayerContext)
   const [menuOpen, setMenuOpen] = useState(false)
   const transitionEnded = useMemo(
     () => mount && transitionStatus === "entered",
@@ -193,12 +197,13 @@ function HeaderComponent({ mount, transition, transitionStatus }) {
   const scrollToBottom = useCallback(() => {
     if (menuOpen) toggleMenuOpen()
     if (audioPlayer.current) {
+      setCurrentPlaying(mainTrack)
       audioPlayer.current.container.current.focus()
       if (!audioPlayer.current.isPlaying()) {
         audioPlayer.current.audio.current.play()
       }
     }
-  }, [audioPlayer, menuOpen, toggleMenuOpen])
+  }, [audioPlayer, mainTrack, menuOpen, setCurrentPlaying, toggleMenuOpen])
   return (
     <TransitionPortal level={transitionEnded ? "top" : "bottom"}>
       <Header>

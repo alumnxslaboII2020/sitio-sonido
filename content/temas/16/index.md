@@ -5,6 +5,7 @@ instagram: "@pq1611"
 orden: 16
 imagen: "./16.png"
 tiempo: "14:24"
+tema: "./16.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

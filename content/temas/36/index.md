@@ -5,6 +5,7 @@ instagram: "@pel0l"
 orden: 36
 imagen: "./36.png"
 tiempo: "33:12"
+tema: "./36.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

@@ -18,6 +18,7 @@ for i, entry in enumerate(data):
     markdown.append(f'orden: {str(i+1)}')
     markdown.append(f'imagen: "./{i+1:02d}.png"')
     markdown.append(f'tiempo: "{entry[5]}"')
+    markdown.append(f'tema: "./{i+1:02d}.wav"')
     markdown.append('')
     
     # Esto después se automatizará

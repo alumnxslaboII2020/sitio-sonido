@@ -5,6 +5,7 @@ instagram: "@_cc.x"
 orden: 7
 imagen: "./07.png"
 tiempo: "05:19"
+tema: "./07.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

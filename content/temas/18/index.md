@@ -5,6 +5,7 @@ instagram: "@agustinleguiza"
 orden: 18
 imagen: "./18.png"
 tiempo: "15:55"
+tema: "./18.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

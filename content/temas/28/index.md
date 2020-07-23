@@ -5,6 +5,7 @@ instagram: "@palomagonzlez"
 orden: 28
 imagen: "./28.png"
 tiempo: "25:34"
+tema: "./28.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

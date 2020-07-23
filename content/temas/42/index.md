@@ -5,6 +5,7 @@ instagram: "@p_marten"
 orden: 42
 imagen: "./42.png"
 tiempo: " 38:39"
+tema: "./42.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

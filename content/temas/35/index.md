@@ -5,6 +5,7 @@ instagram: "@nachocno"
 orden: 35
 imagen: "./35.png"
 tiempo: "31:58"
+tema: "./35.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

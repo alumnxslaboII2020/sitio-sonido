@@ -5,6 +5,7 @@ instagram: "@vockdj"
 orden: 19
 imagen: "./19.png"
 tiempo: "16:53"
+tema: "./19.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

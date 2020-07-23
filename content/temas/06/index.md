@@ -5,6 +5,7 @@ instagram: "@shimagaby"
 orden: 6
 imagen: "./06.png"
 tiempo: "04:14"
+tema: "./06.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

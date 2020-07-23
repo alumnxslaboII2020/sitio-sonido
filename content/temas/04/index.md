@@ -5,6 +5,7 @@ instagram: "@juanfgarabato"
 orden: 4
 imagen: "./04.png"
 tiempo: "02:31"
+tema: "./04.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

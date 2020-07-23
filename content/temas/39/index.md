@@ -5,6 +5,7 @@ instagram: "@santiago.n.n"
 orden: 39
 imagen: "./39.png"
 tiempo: "36:04"
+tema: "./39.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

@@ -5,6 +5,7 @@ instagram: "@flariut"
 orden: 25
 imagen: "./25.png"
 tiempo: "22:39"
+tema: "./25.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

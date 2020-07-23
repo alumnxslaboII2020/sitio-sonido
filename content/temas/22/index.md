@@ -5,6 +5,7 @@ instagram: "@vicky_balay"
 orden: 22
 imagen: "./22.png"
 tiempo: "19:59"
+tema: "./22.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

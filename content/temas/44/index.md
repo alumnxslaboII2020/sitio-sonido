@@ -5,6 +5,7 @@ instagram: "@irevilooet"
 orden: 44
 imagen: "./44.png"
 tiempo: "40:23"
+tema: "./44.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

@@ -5,6 +5,7 @@ instagram: "@gardenofdelete"
 orden: 47
 imagen: "./47.png"
 tiempo: "43:04"
+tema: "./47.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

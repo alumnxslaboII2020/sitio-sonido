@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useCallback, useContext, useEffect, useMemo } from "react"
 import H5AudioPlayer from "react-h5-audio-player"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
@@ -7,6 +7,7 @@ import usePrevious from "../hooks/usePrevious"
 import { AudioPlayerContext } from "../context/audioPlayerContext"
 
 import Loading from "./loading"
+import TransitionLink from "./transitionLink"
 
 // TODO add player colors?
 const rhap_theme_color = ({ theme }) => theme.layout_links // theme.player_theme_color
@@ -289,16 +290,49 @@ const AudioPlayerContainer = styled.div`
   }
 `
 
+const SongHeader = styled.p`
+  color: ${({ theme }) => theme.layout_links};
+  text-align: center;
+  width: 100%;
+`
+
+const StyledTransitionLink = styled(TransitionLink)`
+  color: ${({ theme }) => theme.layout_links};
+  transition: background-color 0.4s ease, color 0.4s ease;
+  &:focus,
+  &:hover {
+    background-color: ${({ theme }) => theme.layout_links_hover};
+  }
+`
+
 function AudioPlayer() {
   const {
     audioPlayer,
     currentPlaying,
     currentTime,
     loading,
+    trackList,
+    setCurrentPlaying,
     setCurrentTime,
   } = useContext(AudioPlayerContext)
 
   const prevCurrentTime = usePrevious(currentTime)
+
+  const { prevTrack, nextTrack } = useMemo(
+    () => ({
+      prevTrack: currentPlaying.orden
+        ? (currentPlaying.orden === 1
+            ? trackList.length
+            : currentPlaying.orden - 1) - 1
+        : null,
+      nextTrack: currentPlaying.orden
+        ? (currentPlaying.orden === trackList.length
+            ? 1
+            : currentPlaying.orden + 1) - 1
+        : null,
+    }),
+    [currentPlaying.orden, trackList.length]
+  )
 
   useEffect(() => {
     if (
@@ -316,6 +350,13 @@ function AudioPlayer() {
     }
   }, [audioPlayer, currentTime, prevCurrentTime, setCurrentTime])
 
+  const handlePrev = useCallback(() => {
+    setCurrentPlaying(trackList[prevTrack])
+  }, [prevTrack, setCurrentPlaying, trackList])
+  const handleNext = useCallback(() => {
+    setCurrentPlaying(trackList[nextTrack])
+  }, [nextTrack, setCurrentPlaying, trackList])
+
   return (
     <AudioPlayerContainer loading={loading ? "true" : ""}>
       {loading ? (
@@ -324,7 +365,30 @@ function AudioPlayer() {
         <H5AudioPlayer
           ref={audioPlayer}
           defaultCurrentTime="00:00"
-          src={currentPlaying}
+          header={
+            <StyledTransitionLink
+              to={
+                currentPlaying.orden
+                  ? `/${
+                      currentPlaying.orden < 10
+                        ? `0${currentPlaying.orden}`
+                        : currentPlaying.orden
+                    }`
+                  : "/"
+              }
+            >
+              <SongHeader>
+                {currentPlaying.orden && `${currentPlaying.orden} - `}
+                {currentPlaying.titulo}
+                {currentPlaying.artista && ` ~ by ${currentPlaying.artista}`}
+              </SongHeader>
+            </StyledTransitionLink>
+          }
+          onClickPrevious={handlePrev}
+          onClickNext={handleNext}
+          onEnded={currentPlaying.orden ? handleNext : undefined}
+          showSkipControls={currentPlaying.orden}
+          src={currentPlaying.url}
           volume={0.5}
         />
       )}

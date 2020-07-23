@@ -5,6 +5,7 @@ instagram: "@fran_jimeno"
 orden: 29
 imagen: "./29.png"
 tiempo: "26:34"
+tema: "./29.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

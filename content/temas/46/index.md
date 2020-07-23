@@ -5,6 +5,7 @@ instagram: "@_sxlana_"
 orden: 46
 imagen: "./46.png"
 tiempo: "42:20"
+tema: "./46.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

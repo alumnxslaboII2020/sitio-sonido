@@ -5,6 +5,7 @@ instagram: "@_mori_da"
 orden: 45
 imagen: "./45.png"
 tiempo: "41:21"
+tema: "./45.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

@@ -5,6 +5,7 @@ instagram: "@mililasa"
 orden: 15
 imagen: "./15.png"
 tiempo: "13:23"
+tema: "./15.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

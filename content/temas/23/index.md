@@ -5,6 +5,7 @@ instagram: "@r.o.y.e"
 orden: 23
 imagen: "./23.png"
 tiempo: "20:55"
+tema: "./23.wav"
 
 transicion: cubrir
 color_transicion: "#000000"
