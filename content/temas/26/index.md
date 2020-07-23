@@ -5,6 +5,7 @@ instagram: "@aldimluzzz"
 orden: 26
 imagen: "./26.png"
 tiempo: "23:39"
+tema: "./26.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

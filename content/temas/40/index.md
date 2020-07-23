@@ -5,6 +5,7 @@ instagram: ""
 orden: 40
 imagen: "./40.png"
 tiempo: "37:01"
+tema: "./40.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

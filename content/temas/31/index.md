@@ -5,6 +5,7 @@ instagram: "@mentaimiel"
 orden: 31
 imagen: "./31.png"
 tiempo: "28:09"
+tema: "./31.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

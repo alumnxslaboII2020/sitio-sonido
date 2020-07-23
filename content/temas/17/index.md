@@ -5,6 +5,7 @@ instagram: "@meliibalbi"
 orden: 17
 imagen: "./17.png"
 tiempo: "15:00"
+tema: "./17.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

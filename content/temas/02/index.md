@@ -5,6 +5,7 @@ instagram: "@lvcprodu"
 orden: 2
 imagen: "./02.png"
 tiempo: "00:59"
+tema: "./02.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

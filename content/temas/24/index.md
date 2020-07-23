@@ -5,6 +5,7 @@ instagram: "@valo.spk"
 orden: 24
 imagen: "./24.png"
 tiempo: "21:41"
+tema: "./24.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

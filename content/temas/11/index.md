@@ -5,6 +5,7 @@ instagram: "@lucasosa11"
 orden: 11
 imagen: "./11.png"
 tiempo: "09:18"
+tema: "./11.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

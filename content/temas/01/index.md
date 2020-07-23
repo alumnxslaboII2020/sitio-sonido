@@ -5,6 +5,7 @@ instagram: "@tebo.mtd"
 orden: 1
 imagen: "./01.png"
 tiempo: "00:00"
+tema: "./01.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

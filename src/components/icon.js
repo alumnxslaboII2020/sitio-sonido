@@ -5,7 +5,7 @@ import {
   FaGithub,
   FaInstagram,
   FaTwitter,
-  FaYoutube
+  FaYoutube,
 } from "react-icons/fa"
 import { MdClose, MdMenu } from "react-icons/md"
 

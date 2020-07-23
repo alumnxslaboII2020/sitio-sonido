@@ -5,6 +5,7 @@ instagram: "@abulands"
 orden: 10
 imagen: "./10.png"
 tiempo: "08:18"
+tema: "./10.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

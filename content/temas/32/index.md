@@ -5,6 +5,7 @@ instagram: "@emilquerubin"
 orden: 32
 imagen: "./32.png"
 tiempo: "29:02"
+tema: "./32.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

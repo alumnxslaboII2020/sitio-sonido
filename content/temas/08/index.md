@@ -5,6 +5,7 @@ instagram: "@juanxprz"
 orden: 8
 imagen: "./08.png"
 tiempo: "06:20"
+tema: "./08.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

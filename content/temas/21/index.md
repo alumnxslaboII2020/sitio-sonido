@@ -5,6 +5,7 @@ instagram: "@_zigurat"
 orden: 21
 imagen: "./21.png"
 tiempo: "19:03"
+tema: "./21.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

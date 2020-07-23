@@ -5,6 +5,7 @@ instagram: "@micaela_vignolo"
 orden: 34
 imagen: "./34.png"
 tiempo: "31:00"
+tema: "./34.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

@@ -5,6 +5,7 @@ instagram: "@_e1ectra"
 orden: 14
 imagen: "./14.png"
 tiempo: "12:23"
+tema: "./14.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

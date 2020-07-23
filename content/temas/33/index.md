@@ -5,6 +5,7 @@ instagram: "@milastcruz"
 orden: 33
 imagen: "./33.png"
 tiempo: "30:00"
+tema: "./33.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

@@ -5,6 +5,7 @@ instagram: "@_melissa._qwq"
 orden: 27
 imagen: "./27.png"
 tiempo: "24:40"
+tema: "./27.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

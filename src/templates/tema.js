@@ -136,7 +136,13 @@ const LinksContainer = styled.ul`
 `
 
 const Tema = ({ data, pageContext }) => {
-  const { audioPlayer, setCurrentTime } = useContext(AudioPlayerContext)
+  const {
+    audioPlayer,
+    mainTrack,
+    setCurrentTime,
+    setCurrentPlaying,
+    trackList,
+  } = useContext(AudioPlayerContext)
   const tema = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
@@ -147,6 +153,7 @@ const Tema = ({ data, pageContext }) => {
     duracion_transicion,
     imagen,
     instagram,
+    orden,
     tiempo,
     titulo,
     transicion,
@@ -164,16 +171,27 @@ const Tema = ({ data, pageContext }) => {
     [instagram]
   )
 
+  const track = useMemo(
+    () => trackList.find(({ orden: order }) => orden === order),
+    [orden, trackList]
+  )
+
   const time = useMemo(() => {
     const [, minutes, seconds] = timeRegex.exec(tiempo)
     timeRegex.lastIndex = 0
     return Number(Number(minutes) * 60 + Number(seconds))
   }, [tiempo])
 
-  const handleClick = useCallback(() => {
+  const handlePlayAlbum = useCallback(() => {
+    setCurrentPlaying(mainTrack)
     setCurrentTime(time)
     if (audioPlayer.current) audioPlayer.current.container.current.focus()
-  }, [audioPlayer, setCurrentTime, time])
+  }, [audioPlayer, mainTrack, setCurrentPlaying, setCurrentTime, time])
+
+  const handlePlayTrack = useCallback(() => {
+    setCurrentPlaying(track)
+    if (audioPlayer.current) audioPlayer.current.container.current.focus()
+  }, [audioPlayer, setCurrentPlaying, track])
 
   return (
     <Layout
@@ -207,10 +225,16 @@ const Tema = ({ data, pageContext }) => {
           <Author>
             <p>Artista: {artista}</p>
             <LinksList Link={Link} links={links} />
-            <PlayButton aria-label={`Escuchar ${titulo}`} onClick={handleClick}>
+            <PlayButton
+              aria-label={`Escuchar ${titulo}`}
+              onClick={handlePlayTrack}
+            >
               escuchar
             </PlayButton>
-            <PlayButton aria-label={`Escuchar ${titulo}`} onClick={handleClick}>
+            <PlayButton
+              aria-label={`Escuchar ${titulo}`}
+              onClick={handlePlayAlbum}
+            >
               escuchar (disco)
             </PlayButton>
           </Author>
@@ -291,6 +315,7 @@ export const pageQuery = graphql`
           }
         }
         instagram
+        orden
         tiempo
         titulo
         transicion

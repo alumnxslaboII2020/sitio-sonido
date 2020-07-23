@@ -5,6 +5,7 @@ instagram: "@skinnyrams"
 orden: 37
 imagen: "./37.png"
 tiempo: "34:09"
+tema: "./37.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

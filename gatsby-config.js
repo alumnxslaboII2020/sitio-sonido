@@ -8,8 +8,7 @@ module.exports = {
       {
         icon: "bandcamp",
         description: "Bandcamp",
-        url:
-          "https://aaxee.bandcamp.com/",
+        url: "https://aaxee.bandcamp.com/",
       },
       {
         icon: "youtube",

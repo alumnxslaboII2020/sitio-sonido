@@ -5,6 +5,7 @@ instagram: "@pablo.martin0"
 orden: 9
 imagen: "./09.png"
 tiempo: "07:19"
+tema: "./09.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

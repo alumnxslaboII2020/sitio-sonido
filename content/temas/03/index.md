@@ -5,6 +5,7 @@ instagram: "@mateoherman"
 orden: 3
 imagen: "./03.png"
 tiempo: "01:43"
+tema: "./03.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

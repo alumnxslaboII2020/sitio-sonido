@@ -5,6 +5,7 @@ instagram: "@lori7o"
 orden: 41
 imagen: "./41.png"
 tiempo: "37:48"
+tema: "./41.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

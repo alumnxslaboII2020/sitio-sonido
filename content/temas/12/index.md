@@ -5,6 +5,7 @@ instagram: "@flopasquali"
 orden: 12
 imagen: "./12.png"
 tiempo: "10:08"
+tema: "./12.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

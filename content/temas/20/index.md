@@ -5,6 +5,7 @@ instagram: "@_lupiolo"
 orden: 20
 imagen: "./20.png"
 tiempo: "18:05"
+tema: "./20.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

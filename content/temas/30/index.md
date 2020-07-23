@@ -5,6 +5,7 @@ instagram: "@nafebeat"
 orden: 30
 imagen: "./30.png"
 tiempo: "27:14"
+tema: "./30.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

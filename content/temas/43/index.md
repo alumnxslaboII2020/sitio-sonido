@@ -5,6 +5,7 @@ instagram: "@renzoojg"
 orden: 43
 imagen: "./43.png"
 tiempo: "39:33"
+tema: "./43.wav"
 
 transicion: cubrir
 color_transicion: "#000000"

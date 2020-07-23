@@ -5,6 +5,7 @@ instagram: "@ajshdjhajdf"
 orden: 38
 imagen: "./38.png"
 tiempo: "35:04"
+tema: "./38.wav"
 
 transicion: cubrir
 color_transicion: "#000000"
