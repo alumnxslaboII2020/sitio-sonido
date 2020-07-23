@@ -210,9 +210,6 @@ const Tema = ({ data, pageContext }) => {
             <PlayButton aria-label={`Escuchar ${titulo}`} onClick={handleClick}>
               escuchar
             </PlayButton>
-            <PlayButton aria-label={`Escuchar ${titulo}`} onClick={handleClick}>
-              escuchar (disco)
-            </PlayButton>
           </Author>
         </Content>
         <section>{astCompiler(tema.htmlAst)}</section>
