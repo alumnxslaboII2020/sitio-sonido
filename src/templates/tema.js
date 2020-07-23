@@ -56,6 +56,7 @@ const Author = styled.div`
   padding: 0 1rem;
   margin-bottom: 2rem;
   @media (max-width: 554px) {
+    padding: 0;
     width: 100%;
   }
 `
