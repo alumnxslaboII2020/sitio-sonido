@@ -35,15 +35,15 @@ const Title = styled.h1`
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
-  @media (max-width: 554px) {
+  @media (max-width: 768px) {
     flex-direction: column-reverse;
+    justify-content: center;
   }
 `
 
 const ImageContainer = styled.div`
   flex: 1;
   height: auto;
-  max-width: 500px;
   width: auto;
 `
 
@@ -53,6 +53,7 @@ const Author = styled.div`
   flex: 1;
   flex-direction: column;
   font-size: 1.2rem;
+  padding: 0 1rem;
   margin-bottom: 2rem;
   @media (max-width: 554px) {
     width: 100%;
@@ -84,6 +85,7 @@ const PlayButton = styled.button`
   color: ${({ theme }) => theme.layout_links};
   cursor: pointer;
   font-size: 1.5rem;
+  margin-top: 1rem;
   outline: none;
   padding: 1rem 2rem;
   transition: all 0.4s ease;
@@ -93,6 +95,13 @@ const PlayButton = styled.button`
   }
   :hover {
     box-shadow: 0px 2px 6px #000;
+  }
+  :last-of-type {
+    margin-top: 2rem;
+  }
+  @media (max-width: 554px) {
+    padding: 1rem;
+    width: 100%;
   }
 `
 
@@ -199,6 +208,9 @@ const Tema = ({ data, pageContext }) => {
             <LinksList Link={Link} links={links} />
             <PlayButton aria-label={`Escuchar ${titulo}`} onClick={handleClick}>
               escuchar
+            </PlayButton>
+            <PlayButton aria-label={`Escuchar ${titulo}`} onClick={handleClick}>
+              escuchar (disco)
             </PlayButton>
           </Author>
         </Content>
