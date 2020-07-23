@@ -93,9 +93,6 @@ const menuLinkMixin = ({ theme }) => css`
   &:hover {
     background-color: ${theme.layout_links_hover};
   }
-  @media (max-width: 554px) {
-    font-size: 0.85rem;
-  }
 `
 
 const MenuLink = styled(TransitionLink)`

@@ -3,15 +3,14 @@ import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 
+import ExternalLink from "../components/externalLink"
 import Layout from "../components/layout"
 import LinksList from "../components/linksList"
 import SEO from "../components/seo"
 import TransitionLink from "../components/transitionLink"
 import astCompiler from "../utils/astCompiler"
-import ExternalLink from "../components/externalLink"
+import timeParser from "../utils/timeParser"
 import { AudioPlayerContext } from "../context/audioPlayerContext"
-
-const timeRegex = /(\d{2}):(\d{2})/g
 
 const Article = styled.article`
   display: flex;
@@ -116,12 +115,17 @@ const Nav = styled.nav`
 const StyledTransitionLink = styled(TransitionLink)`
   box-shadow: 0 2px transparent;
   color: ${({ theme }) => theme.links};
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
   text-decoration: none;
   transition: box-shadow 0.4s ease, color 0.4s ease;
   &:focus,
   &:hover {
     box-shadow: 0 2px ${({ theme }) => theme.links_hover};
     color: ${({ theme }) => theme.links_hover};
+  }
+  @media (max-width: 768px) {
+    font-size: 1rem;
   }
 `
 
@@ -133,10 +137,15 @@ const LinksContainer = styled.ul`
   list-style: none;
   padding: 1rem 0 0 0;
   width: 90%;
+  @media (max-width: 768px) {
+    align-items: center;
+    flex-direction: column-reverse;
+    height: 5rem;
+  }
 `
 
 const Tema = ({ data, pageContext }) => {
-  const { audioPlayer, setCurrentTime } = useContext(AudioPlayerContext)
+  const { audioPlayer, setPlay } = useContext(AudioPlayerContext)
   const tema = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
@@ -165,15 +174,13 @@ const Tema = ({ data, pageContext }) => {
   )
 
   const time = useMemo(() => {
-    const [, minutes, seconds] = timeRegex.exec(tiempo)
-    timeRegex.lastIndex = 0
-    return Number(Number(minutes) * 60 + Number(seconds))
+    return timeParser(tiempo)
   }, [tiempo])
 
   const handleClick = useCallback(() => {
-    setCurrentTime(time)
+    setPlay(time)
     if (audioPlayer.current) audioPlayer.current.container.current.focus()
-  }, [audioPlayer, setCurrentTime, time])
+  }, [audioPlayer, setPlay, time])
 
   return (
     <Layout

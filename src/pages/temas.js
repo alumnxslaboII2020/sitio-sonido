@@ -10,7 +10,7 @@ import TransitionLink from "../components/transitionLink"
 const Container = styled.div`
   border-radius: 4px;
   box-shadow: 0px 2px 20px #000;
-  min-width: 360px;
+  min-width: 340px;
   overflow: hidden;
   width: 80%;
 `

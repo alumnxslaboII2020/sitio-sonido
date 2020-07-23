@@ -10,8 +10,10 @@ const List = styled.ul`
   justify-content: space-between;
   list-style-type: none;
   padding: 0;
-  max-width: 1024px;
   width: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 const Item = styled.li`

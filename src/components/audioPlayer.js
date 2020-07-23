@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useCallback, useContext, useEffect } from "react"
 import H5AudioPlayer from "react-h5-audio-player"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
@@ -7,6 +7,7 @@ import usePrevious from "../hooks/usePrevious"
 import { AudioPlayerContext } from "../context/audioPlayerContext"
 
 import Loading from "./loading"
+import TransitionLink from "./transitionLink"
 
 // TODO add player colors?
 const rhap_theme_color = ({ theme }) => theme.layout_links // theme.player_theme_color
@@ -288,33 +289,51 @@ const AudioPlayerContainer = styled.div`
     }
   }
 `
+const SongHeader = styled.p`
+  color: ${({ theme }) => theme.layout_links};
+  text-align: center;
+  width: 100%;
+`
+const StyledTransitionLink = styled(TransitionLink)`
+  color: ${({ theme }) => theme.layout_links};
+  transition: background-color 0.4s ease, color 0.4s ease;
+  &:focus,
+  &:hover {
+    background-color: ${({ theme }) => theme.layout_links_hover};
+  }
+`
 
 function AudioPlayer() {
   const {
     audioPlayer,
-    currentPlaying,
-    currentTime,
     loading,
-    setCurrentTime,
+    play,
+    setPlay,
+    setTime,
+    song,
+    songPlaying,
   } = useContext(AudioPlayerContext)
 
-  const prevCurrentTime = usePrevious(currentTime)
+  const prevPlay = usePrevious(play)
 
   useEffect(() => {
     if (
-      prevCurrentTime !== undefined &&
-      currentTime !== null &&
-      prevCurrentTime !== currentTime &&
+      prevPlay !== undefined &&
+      play !== null &&
+      prevPlay !== play &&
       audioPlayer.current
     ) {
       const audio = audioPlayer.current.audio.current
-      audio.currentTime = currentTime
-      setCurrentTime(null)
+      audio.currentTime = play
+      setTime(play)
+      setPlay(null)
       if (!audioPlayer.current.isPlaying()) {
         audio.play()
       }
     }
-  }, [audioPlayer, currentTime, prevCurrentTime, setCurrentTime])
+  }, [audioPlayer, play, prevPlay, setPlay, setTime])
+
+  const handleListen = useCallback(event => setTime(event.target.currentTime), [setTime])
 
   return (
     <AudioPlayerContainer loading={loading ? "true" : ""}>
@@ -323,8 +342,27 @@ function AudioPlayer() {
       ) : (
         <H5AudioPlayer
           ref={audioPlayer}
-          defaultCurrentTime="00:00"
-          src={currentPlaying}
+          defaultPlay="00:00"
+          header={
+            <StyledTransitionLink
+              to={
+                songPlaying
+                  ? songPlaying.slug
+                  : "/"
+              }
+              {...songPlaying ? songPlaying.transicion : {}}
+            >
+              <SongHeader>
+                Resonancia Colectiva
+              </SongHeader>
+              
+              {songPlaying && <SongHeader>
+                {`${songPlaying.orden} - ${songPlaying.titulo} ~ by ${songPlaying.artista}`}
+              </SongHeader>}
+            </StyledTransitionLink>
+          }
+          onListen={handleListen}
+          src={song}
           volume={0.5}
         />
       )}
