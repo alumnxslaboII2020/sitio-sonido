@@ -157,7 +157,7 @@ const Tema = ({ data, pageContext }) => {
   const time = useMemo(() => {
     const [, minutes, seconds] = timeRegex.exec(tiempo)
     timeRegex.lastIndex = 0
-    return (minutes / 60 + seconds) * 1000
+    return Number(Number(minutes) * 60 + Number(seconds))
   }, [tiempo])
 
   const handleClick = useCallback(() => {

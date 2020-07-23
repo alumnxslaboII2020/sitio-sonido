@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect } from "react"
+import React, { useContext, useEffect } from "react"
 import H5AudioPlayer from "react-h5-audio-player"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
@@ -296,24 +296,21 @@ function AudioPlayer() {
 
   const prevCurrentTime = usePrevious(currentTime)
 
-  const handleListen = useCallback(
-    event => setCurrentTime(event.target.currentTime),
-    [setCurrentTime]
-  )
-
   useEffect(() => {
     if (
       prevCurrentTime !== undefined &&
+      currentTime !== null &&
       prevCurrentTime !== currentTime &&
       audioPlayer.current
     ) {
       const audio = audioPlayer.current.audio.current
       audio.currentTime = currentTime
+      setCurrentTime(null)
       if (!audioPlayer.current.isPlaying()) {
         audio.play()
       }
     }
-  }, [audioPlayer, currentTime, prevCurrentTime])
+  }, [audioPlayer, currentTime, prevCurrentTime, setCurrentTime])
 
   return (
     <AudioPlayerContainer loading={loading ? "true" : ""}>
@@ -323,7 +320,6 @@ function AudioPlayer() {
         <H5AudioPlayer
           ref={audioPlayer}
           defaultCurrentTime="00:00"
-          onListen={handleListen}
           src={currentPlaying}
           volume={0.5}
         />
