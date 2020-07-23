@@ -9,7 +9,7 @@ import TransitionLink from "../components/transitionLink"
 
 const Container = styled.div`
   border-radius: 4px;
-  box-shadow: 1px 2px 3px #000;
+  box-shadow: 0px 2px 20px #000;
   min-width: 360px;
   overflow: hidden;
   width: 80%;
@@ -25,6 +25,7 @@ const Article = styled.article`
   background-color: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.color};
   display: flex;
+  font-size: 1.2rem;
   height: 150px;
   justify-content: space-evenly;
   overflow: hidden;
@@ -43,8 +44,8 @@ const ArticleNumber = styled.p`
 
 const ArticleDescription = styled.p`
   flex: 3;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.7rem;
   padding: 0 8px;
 `
 

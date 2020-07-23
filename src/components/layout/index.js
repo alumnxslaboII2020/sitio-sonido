@@ -1,4 +1,4 @@
-import React, { useCallback } from "react"
+import React, { useCallback, useContext } from "react"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { Global, css } from "@emotion/core"
@@ -8,14 +8,16 @@ import {
 } from "gatsby-plugin-transition-link"
 import { useStaticQuery, graphql } from "gatsby"
 
-import TransitionLink from "../transitionLink"
 import LinksList from "../linksList"
+import TransitionLink from "../transitionLink"
+import { AudioPlayerContext } from "../../context/audioPlayerContext"
 
 const globlalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 
   * {
     font-family: "Major Mono Display", sans-serif;
+    text-transform: lowercase;
   }
   html {
     scroll-behavior: smooth;
@@ -158,9 +160,18 @@ const Layout = ({ background = true, children, transition = {} }) => {
     `
   )
 
+  const { audioPlayer } = useContext(AudioPlayerContext);
+
   const scrollToBottom = useCallback(
-    () => window.scrollTo(0, document.body.scrollHeight),
-    []
+    () => {
+      if (audioPlayer.current) {
+        audioPlayer.current.container.current.focus();
+        if (!audioPlayer.current.isPlaying()) {
+          audioPlayer.current.audio.current.play()
+        }
+      }
+    },
+    [audioPlayer]
   )
 
   return (

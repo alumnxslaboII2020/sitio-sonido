@@ -21,7 +21,7 @@ export const defaultTheme = {
   color: "#eeeeee",
   layout: "#000000",
   layout_links: "#ffffff",
-  layout_links_hover: "#eeeeee44",
+  layout_links_hover: "#545454",
   links: "#065A82",
   links_hover: "#1C7293",
 }

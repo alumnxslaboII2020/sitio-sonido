@@ -1,8 +1,9 @@
-import React, { useContext } from "react"
+import React, { useCallback, useContext, useEffect } from "react"
 import H5AudioPlayer from "react-h5-audio-player"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 
+import usePrevious from "../hooks/usePrevious"
 import { AudioPlayerContext } from "../context/audioPlayerContext"
 
 import Loading from "./loading"
@@ -32,13 +33,16 @@ const AudioPlayerContainer = styled.div`
     width: 100%;
     padding: 10px 15px;
     background-color: transparent;
+    transition: background-color 0.4s ease;
 
-    &:focus:not(:focus-visible) {
-      outline: 0;
-    }
+    outline: none;
 
     svg {
       vertical-align: initial;
+    }
+
+    :focus {
+      background-color: ${({ theme }) => theme.layout_links_hover}88;
     }
   }
 
@@ -286,15 +290,41 @@ const AudioPlayerContainer = styled.div`
 `
 
 function AudioPlayer() {
-  const { currentPlaying, loading } = useContext(AudioPlayerContext)
+  const { audioPlayer, currentPlaying, currentTime, loading, setCurrentTime } = useContext(
+    AudioPlayerContext
+  )
+
+  const prevCurrentTime = usePrevious(currentTime)
+
+  const handleListen = useCallback(
+    event => setCurrentTime(event.target.currentTime),
+    [setCurrentTime]
+  )
+
+  useEffect(() => {
+    if (
+      prevCurrentTime !== undefined &&
+      prevCurrentTime !== currentTime &&
+      audioPlayer.current
+    ) {
+      const audio = audioPlayer.current.audio.current
+      audio.currentTime = currentTime
+      if (!audioPlayer.current.isPlaying()) {
+        audio.play()
+      }
+    }
+  }, [audioPlayer, currentTime, prevCurrentTime])
+
   return (
     <AudioPlayerContainer loading={loading ? "true" : ""}>
       {loading ? (
         <Loading />
       ) : (
         <H5AudioPlayer
-          src={currentPlaying}
+          ref={audioPlayer}
           defaultCurrentTime="00:00"
+          onListen={handleListen}
+          src={currentPlaying}
           volume={0.5}
         />
       )}

@@ -1,4 +1,4 @@
-import React, { useMemo } from "react"
+import React, { useCallback, useContext, useMemo } from "react"
 import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
@@ -8,6 +8,10 @@ import LinksList from "../components/linksList"
 import SEO from "../components/seo"
 import TransitionLink from "../components/transitionLink"
 import astCompiler from "../utils/astCompiler"
+import ExternalLink from "../components/externalLink"
+import { AudioPlayerContext } from "../context/audioPlayerContext"
+
+const timeRegex = /(\d{2}):(\d{2})/g
 
 const Article = styled.article`
   display: flex;
@@ -49,12 +53,13 @@ const Author = styled.div`
   flex: 1;
   flex-direction: column;
   font-size: 1.2rem;
+  margin-bottom: 2rem;
   @media (max-width: 554px) {
     width: 100%;
   }
 `
 
-const Link = styled.a`
+const Link = styled(ExternalLink)`
   border-bottom: solid 2px transparent;
   color: ${({ theme }) => theme.links};
   display: flex;
@@ -69,6 +74,28 @@ const Link = styled.a`
     color: ${({ theme }) => theme.links_hover};
   }
 `
+
+const PlayButton = styled.button`
+  appearance: none;
+  background-color: ${({ theme }) => theme.layout};
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0px 0px 3px #000;
+  color: ${({ theme }) => theme.layout_links};
+  cursor: pointer;
+  font-size: 1.5rem;
+  outline: none;
+  padding: 1rem 2rem;
+  transition: all 0.4s ease;
+  :focus,
+  :hover {
+    background-color: ${({ theme }) => theme.layout}aa;
+  }
+  :hover {
+    box-shadow: 0px 2px 6px #000;
+  }
+`
+
 const Nav = styled.nav`
   align-items: center;
   display: flex;
@@ -99,6 +126,7 @@ const LinksContainer = styled.ul`
 `
 
 const Tema = ({ data, pageContext }) => {
+  const { audioPlayer, setCurrentTime } = useContext(AudioPlayerContext)
   const tema = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
@@ -109,6 +137,7 @@ const Tema = ({ data, pageContext }) => {
     duracion_transicion,
     imagen,
     instagram,
+    tiempo,
     titulo,
     transicion,
   } = tema.frontmatter
@@ -124,6 +153,17 @@ const Tema = ({ data, pageContext }) => {
       ].filter(Boolean),
     [instagram]
   )
+
+  const time = useMemo(() => {
+    const [, minutes, seconds] = timeRegex.exec(tiempo)
+    timeRegex.lastIndex = 0
+    return (minutes / 60 + seconds) * 1000
+  }, [tiempo])
+
+  const handleClick = useCallback(() => {
+    setCurrentTime(time)
+    if (audioPlayer.current) audioPlayer.current.container.current.focus();
+  }, [audioPlayer, setCurrentTime, time])
 
   return (
     <Layout
@@ -157,6 +197,9 @@ const Tema = ({ data, pageContext }) => {
           <Author>
             <p>Artista: {artista}</p>
             <LinksList Link={Link} links={links} />
+            <PlayButton aria-label={`Escuchar ${titulo}`} onClick={handleClick}>
+              escuchar
+            </PlayButton>
           </Author>
         </Content>
         <section>{astCompiler(tema.htmlAst)}</section>
@@ -235,6 +278,7 @@ export const pageQuery = graphql`
           }
         }
         instagram
+        tiempo
         titulo
         transicion
       }

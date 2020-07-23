@@ -3,15 +3,16 @@ titulo: "Todo lok hiciste"
 artista: "Jimena Varon"
 instagram: "@mateoherman"
 orden: 3
-# imagen: "./03.png"
+imagen: "./03.png"
+tiempo: "01:43"
 
-transicion: crecer
+transicion: cubrir
 color_transicion: "#000000"
 direccion_transicion: derecha
 duracion_transicion: 1
 color_sitio: "#000000"
 color_navegacion: "#ffffff"
-color_navegacion_hover: "#ffffff44"
+color_navegacion_hover: "#545454"
 color_fondo: "#ffffff"
 color_letra: "#000000"
 color_links: "#065A82"

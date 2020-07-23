@@ -27,7 +27,7 @@ for i, entry in enumerate(data):
     markdown.append('duracion_transicion: 1')
     markdown.append('color_sitio: "#000000"')
     markdown.append('color_navegacion: "#ffffff"')
-    markdown.append('color_navegacion_hover: "#ffffff44"')
+    markdown.append('color_navegacion_hover: "#545454"')
     markdown.append('color_fondo: "#ffffff"')
     markdown.append('color_letra: "#000000"')
     markdown.append('color_links: "#065A82"')

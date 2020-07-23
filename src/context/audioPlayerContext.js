@@ -7,9 +7,11 @@ import pathOr from "../utils/pathOr"
 export const AudioPlayerContext = createContext()
 
 function AudioPlayerProvider({ children }) {
+  const audioPlayer = useRef();
   const data = useFetch(api.getSongByOrder)
 
   const [currentPlaying, setCurrentPlaying] = useState(null)
+  const [currentTime, setCurrentTime] = useState(null)
 
   useEffect(() => {
     const song =
@@ -17,15 +19,14 @@ function AudioPlayerProvider({ children }) {
     if (data) setCurrentPlaying(song)
   }, [data])
 
-  const allSongs = useRef().current
-
   return (
     <AudioPlayerContext.Provider
       value={{
-        loading: !currentPlaying,
+        audioPlayer,
         currentPlaying,
-        setCurrentPlaying,
-        allSongs,
+        currentTime,
+        loading: !currentPlaying,
+        setCurrentTime,
       }}
     >
       {children}
