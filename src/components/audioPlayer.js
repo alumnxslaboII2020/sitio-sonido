@@ -1,17 +1,28 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import H5AudioPlayer from "react-h5-audio-player"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+
+import usePrevious from "../hooks/usePrevious"
 import { AudioPlayerContext } from "../context/audioPlayerContext"
+
+import Loading from "./loading"
 
 // TODO add player colors?
 const rhap_theme_color = ({ theme }) => theme.layout_links // theme.player_theme_color
 const rhap_bar_color = ({ theme }) => theme.layout_links // theme.player_bar_color
 const rhap_time_color = ({ theme }) => theme.layout_links // theme.player_time_color
 
+const loadingMixin = css`
+  margin-top: -1.5rem;
+  padding-top: 1.5rem;
+`
+
 const AudioPlayerContainer = styled.div`
   background-color: ${({ theme }) => theme.layout};
   padding-bottom: 0.5rem;
   transition: background 0.4s ease;
+  ${({ loading }) => (loading ? loadingMixin : "")}
 
   .rhap_container {
     box-sizing: border-box;
@@ -22,13 +33,16 @@ const AudioPlayerContainer = styled.div`
     width: 100%;
     padding: 10px 15px;
     background-color: transparent;
+    transition: background-color 0.4s ease;
 
-    &:focus:not(:focus-visible) {
-      outline: 0;
-    }
+    outline: none;
 
     svg {
       vertical-align: initial;
+    }
+
+    :focus {
+      background-color: ${({ theme }) => theme.layout_links_hover}88;
     }
   }
 
@@ -276,10 +290,44 @@ const AudioPlayerContainer = styled.div`
 `
 
 function AudioPlayer() {
-  const { currentPlaying } = useContext(AudioPlayerContext)
+  const {
+    audioPlayer,
+    currentPlaying,
+    currentTime,
+    loading,
+    setCurrentTime,
+  } = useContext(AudioPlayerContext)
+
+  const prevCurrentTime = usePrevious(currentTime)
+
+  useEffect(() => {
+    if (
+      prevCurrentTime !== undefined &&
+      currentTime !== null &&
+      prevCurrentTime !== currentTime &&
+      audioPlayer.current
+    ) {
+      const audio = audioPlayer.current.audio.current
+      audio.currentTime = currentTime
+      setCurrentTime(null)
+      if (!audioPlayer.current.isPlaying()) {
+        audio.play()
+      }
+    }
+  }, [audioPlayer, currentTime, prevCurrentTime, setCurrentTime])
+
   return (
-    <AudioPlayerContainer>
-      <H5AudioPlayer src={currentPlaying} defaultCurrentTime="00:00" volume={0.5} />
+    <AudioPlayerContainer loading={loading ? "true" : ""}>
+      {loading ? (
+        <Loading />
+      ) : (
+        <H5AudioPlayer
+          ref={audioPlayer}
+          defaultCurrentTime="00:00"
+          src={currentPlaying}
+          volume={0.5}
+        />
+      )}
     </AudioPlayerContainer>
   )
 }

@@ -4,24 +4,28 @@ import { graphql, useStaticQuery } from "gatsby"
 export const AudioPlayerContext = createContext()
 
 function AudioPlayerProvider({ children }) {
+  const audioPlayer = useRef()
   const data = useStaticQuery(graphql`
     {
-      file(name: { eq: "test" }) {
-        publicURL
+      sanityFileAsset(
+        originalFilename: { eq: "RESONANCIA COLECTIVA - LP.mp3" }
+      ) {
+        url
       }
     }
   `)
 
-  
-  const [currentPlaying, setCurrentPlaying] = useState(data.file.publicURL)
-  const allSongs = useRef().current
+  const [currentPlaying] = useState(data.sanityFileAsset.url)
+  const [currentTime, setCurrentTime] = useState(null)
 
   return (
     <AudioPlayerContext.Provider
       value={{
+        audioPlayer,
         currentPlaying,
-        setCurrentPlaying,
-        allSongs,
+        currentTime,
+        loading: !currentPlaying,
+        setCurrentTime,
       }}
     >
       {children}

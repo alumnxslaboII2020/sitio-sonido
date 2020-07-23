@@ -1,11 +1,8 @@
 // TODO revise
 module.exports = {
   siteMetadata: {
-    title: `AAEE DISCO 2020`,
-    author: {
-      name: `Resonancia colectiva: encuentros electroacústicos en laboratorios improvisados`,
-    },
-    description: `Proyecto fonográfico LABO II 2020`,
+    title: `Resonancia Colectiva`,
+    description: `Encuentros electroacústicos en laboratorios improvisados`,
     siteUrl: `https://pandemi-ae.vercel.app/`,
     links: [
       {
@@ -17,10 +14,9 @@ module.exports = {
       {
         icon: "instagram",
         description: "@Pandemi.ae",
-        url:
-          "https://www.instagram.com/pandemi.ae/",
-      }
-    ]
+        url: "https://www.instagram.com/pandemi.ae/",
+      },
+    ],
   },
   plugins: [
     {
@@ -80,12 +76,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-preload-fonts",
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: `gatsby-source-sanity`,
       options: {
-        google: {
-          families: ["Poppins"],
-        },
+        projectId: "5nffa2mu",
+        dataset: "production",
+        graphqlTag: "default",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

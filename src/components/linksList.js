@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import Icon from "./icon"
 import ExternalLink from "./externalLink"
+import Icon from "./icon"
 
 const List = styled.ul`
   display: flex;
@@ -17,23 +17,25 @@ const List = styled.ul`
 const Item = styled.li`
   align-items: center;
   display: flex;
-  justify-content: center;
   flex: 1;
+  justify-content: center;
+  padding: 8px 0;
+  white-space: nowrap;
 `
 
 const Description = styled.span`
   margin-left: 8px;
 `
 
-function LinksList({ links }) {
+function LinksList({ links, Link = ExternalLink }) {
   return (
     <List>
       {links.map(({ description, icon, url }) => (
         <Item key={url}>
-          <ExternalLink href={url}>
+          <Link href={url}>
             <Icon name={icon} />
             <Description>{description}</Description>
-          </ExternalLink>
+          </Link>
         </Item>
       ))}
     </List>
