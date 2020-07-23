@@ -77,6 +77,14 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-preload-fonts",
+    {
+      resolve: `gatsby-source-sanity`,
+      options: {
+        projectId: "5nffa2mu",
+        dataset: "production",
+        graphqlTag: "default",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
