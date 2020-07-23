@@ -162,7 +162,7 @@ const Tema = ({ data, pageContext }) => {
 
   const handleClick = useCallback(() => {
     setCurrentTime(time)
-    if (audioPlayer.current) audioPlayer.current.container.current.focus();
+    if (audioPlayer.current) audioPlayer.current.container.current.focus()
   }, [audioPlayer, setCurrentTime, time])
 
   return (

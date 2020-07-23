@@ -13,7 +13,7 @@ import TransitionLink from "../transitionLink"
 import { AudioPlayerContext } from "../../context/audioPlayerContext"
 
 const globlalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
 
   * {
     font-family: "Major Mono Display", sans-serif;
@@ -160,19 +160,16 @@ const Layout = ({ background = true, children, transition = {} }) => {
     `
   )
 
-  const { audioPlayer } = useContext(AudioPlayerContext);
+  const { audioPlayer } = useContext(AudioPlayerContext)
 
-  const scrollToBottom = useCallback(
-    () => {
-      if (audioPlayer.current) {
-        audioPlayer.current.container.current.focus();
-        if (!audioPlayer.current.isPlaying()) {
-          audioPlayer.current.audio.current.play()
-        }
+  const scrollToBottom = useCallback(() => {
+    if (audioPlayer.current) {
+      audioPlayer.current.container.current.focus()
+      if (!audioPlayer.current.isPlaying()) {
+        audioPlayer.current.audio.current.play()
       }
-    },
-    [audioPlayer]
-  )
+    }
+  }, [audioPlayer])
 
   return (
     <>

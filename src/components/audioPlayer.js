@@ -290,9 +290,13 @@ const AudioPlayerContainer = styled.div`
 `
 
 function AudioPlayer() {
-  const { audioPlayer, currentPlaying, currentTime, loading, setCurrentTime } = useContext(
-    AudioPlayerContext
-  )
+  const {
+    audioPlayer,
+    currentPlaying,
+    currentTime,
+    loading,
+    setCurrentTime,
+  } = useContext(AudioPlayerContext)
 
   const prevCurrentTime = usePrevious(currentTime)
 
