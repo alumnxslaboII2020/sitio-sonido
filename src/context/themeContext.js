@@ -17,7 +17,7 @@ const THEME_MAPPER = {
 
 // TODO revisar Default theme
 export const defaultTheme = {
-  background: "#1e1e1e",
+  background: "#121212",
   color: "#eeeeee",
   layout: "#000000",
   layout_links: "#ffffff",
@@ -67,7 +67,9 @@ function Theme({ children, overrideTheme = {} }) {
 
   return (
     <ThemeProvider theme={currentTheme}>
-      <IconContext.Provider value={{ color: "inherit", size: "1.2rem" }}>
+      <IconContext.Provider
+        value={{ className: "icon", color: "inherit", size: "1.2rem" }}
+      >
         {children}
       </IconContext.Provider>
     </ThemeProvider>
