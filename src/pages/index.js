@@ -121,24 +121,25 @@ const Inicio = ({ data }) => {
         <Title>Resonancia Colectiva - AAEE 2020</Title>
         <DescriptionContainer>
           <Description>
-            Paisaje sonoro/collage multidimensional colaborativo compuesto a
-            partir de sonidos específicos, creados desde registros sonoros de
-            fuentes electromagnéticas, mecánicas y físicas, acusmatizadas
-            natural y analógicamente, editadas y ensambladas digitalmente. 
+            Paisaje audiovisual/collage multidimensional colaborativo compuesto
+            a partir de sonidos específicos, creados desde registros de fuentes
+            electromagnéticas, mecánicas y físicas, acusmatizadas natural y
+            analógicamente, editadas y ensambladas digitalmente. 
           </Description>
           <Description>
             47 artistas, 47 obras de 1 minuto cada una, ensambladas para así
             formar un paisaje sonoro constantemente cambiante y evolutivo.
           </Description>
           <Description>
-            Los sonidos registrados, acusmatizados y editados fueron puestos a
+            los sonidos registrados, acusmatizados y editados fueron puestos a
             disposición de todxs lxs artistas, creando así un banco de sonido de
-            aproximadamente 1500 sonidos para ser usados libremente en las
-            composiciones
+            aproximadamente 1500 audios para ser usados libremente en las
+            composiciones.
           </Description>
           <Description>
-            Como resultado: un proyecto sonoro colaborativo, con un banco de
-            sonidos comunitario compuesto por todxs lxs artistas de este LP
+            Como resultado: un proyecto audiovisual colaborativo, con un
+            banco de sonidos comunitario compuesto por todxs lxs artistas de
+            este LP.
           </Description>
         </DescriptionContainer>
       </About>
