@@ -39,7 +39,7 @@ const Header = styled.nav`
   top: 0;
   width: 100%;
   z-index: 2;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     padding: 0;
   }
 `
@@ -49,7 +49,7 @@ const Menu = styled.ul`
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     background-color: ${({ theme }) => theme.layout};
     flex-direction: column;
     position: absolute;
@@ -68,7 +68,7 @@ const MenuItem = styled.li`
   &:not(:last-of-type) {
     margin-right: 2rem;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     height: 2rem;
     &:not(:last-of-type) {
       margin-right: 0;
@@ -134,10 +134,11 @@ const floatingButtonMixin = ({theme}) => css`
 
 const ToggleMenuButton = styled.button`
   ${floatingButtonMixin}
+  display: none;
   right: 0.5rem;
   top: 0.7rem;
-  @media (min-width: 769px) {
-    display: none;
+  @media (max-width: 992px) {
+    display: initial;
   }
 `
 
