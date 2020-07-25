@@ -23,6 +23,7 @@ const MasonryContainer = styled.div`
 `
 
 const Banner = styled.div`
+box-shadow: 0 2px 60px #666;
   height: auto;
   margin-top: 2rem;
   width: 40%;
