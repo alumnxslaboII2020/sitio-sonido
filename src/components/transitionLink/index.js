@@ -15,8 +15,8 @@ function TransitionLink({
     () => ({
       [TRANSITIONS_MAPPER.transicion[transicion] ||
       TRANSITIONS_MAPPER.transicion.default]: true,
-      bg: color_transicion || "#000",
-      hex: color_transicion || "#000",
+      bg: color_transicion || "#000000",
+      hex: color_transicion || "#000000",
       direction:
         TRANSITIONS_MAPPER.direccion_transicion[
           direccion_transicion ||

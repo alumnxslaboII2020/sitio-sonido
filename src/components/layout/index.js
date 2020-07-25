@@ -106,7 +106,7 @@ const MenuAction = styled.button`
   ${menuLinkMixin}
 `
 
-const floatingButtonMixin = ({theme}) => css`
+const floatingButtonMixin = ({ theme }) => css`
   align-items: center;
   appearance: none;
   background-color: transparent;
@@ -200,7 +200,10 @@ function HeaderComponent({ mount, transition, transitionStatus }) {
   return (
     <TransitionPortal level={transitionEnded ? "top" : "bottom"}>
       <Header>
-        <ToggleMenuButton aria-label={`${menuOpen ? "Abrir" : "Cerrar"} links para celular`} onClick={toggleMenuOpen}>
+        <ToggleMenuButton
+          aria-label={`${menuOpen ? "Abrir" : "Cerrar"} links para celular`}
+          onClick={toggleMenuOpen}
+        >
           <Icon name={menuOpen ? "close" : "menu"} />
         </ToggleMenuButton>
         <Menu open={transitionEnded && menuOpen}>

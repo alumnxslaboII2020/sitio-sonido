@@ -3,6 +3,7 @@ import Image from "gatsby-image"
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 
+import Button from "../components/button"
 import ExternalLink from "../components/externalLink"
 import Layout from "../components/layout"
 import LinksList from "../components/linksList"
@@ -73,35 +74,6 @@ const Link = styled(ExternalLink)`
   &:hover {
     border-bottom-color: ${({ theme }) => theme.links_hover};
     color: ${({ theme }) => theme.links_hover};
-  }
-`
-
-const PlayButton = styled.button`
-  appearance: none;
-  background-color: ${({ theme }) => theme.layout};
-  border: none;
-  border-radius: 2px;
-  box-shadow: 0px 0px 3px #000;
-  color: ${({ theme }) => theme.layout_links};
-  cursor: pointer;
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  outline: none;
-  padding: 1rem 2rem;
-  transition: all 0.4s ease;
-  :focus,
-  :hover {
-    background-color: ${({ theme }) => theme.layout}aa;
-  }
-  :hover {
-    box-shadow: 0px 2px 6px #000;
-  }
-  :last-of-type {
-    margin-top: 2rem;
-  }
-  @media (max-width: 554px) {
-    padding: 1rem;
-    width: 100%;
   }
 `
 
@@ -214,9 +186,12 @@ const Tema = ({ data, pageContext }) => {
           <Author>
             <p>Artista: {artista}</p>
             <LinksList Link={Link} links={links} />
-            <PlayButton aria-label={`Escuchar ${titulo} por ${artista}`} onClick={handleClick}>
+            <Button
+              aria-label={`Escuchar ${titulo} por ${artista}`}
+              onClick={handleClick}
+            >
               escuchar
-            </PlayButton>
+            </Button>
           </Author>
         </Content>
         <section>{astCompiler(tema.htmlAst)}</section>

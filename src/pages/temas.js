@@ -9,7 +9,7 @@ import TransitionLink from "../components/transitionLink"
 
 const Container = styled.div`
   border-radius: 4px;
-  box-shadow: 0px 2px 20px #000;
+  box-shadow: 0px 2px 20px #000000;
   min-width: 340px;
   overflow: hidden;
   width: 80%;
@@ -82,7 +82,7 @@ const Temas = ({ data }) => {
               key={node.fields.slug}
               aria-label={`Ir al tema: ${titulo}`}
               color_transicion={
-                transicion !== "cubrir" ? color_transicion : "#000"
+                transicion !== "cubrir" ? color_transicion : "#000000"
               }
               direccion_transicion={direccion_transicion}
               duracion_transicion={duracion_transicion}

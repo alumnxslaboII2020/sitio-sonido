@@ -34,7 +34,7 @@ function LinksList({ links, Link = ExternalLink }) {
     <List>
       {links.map(({ description, icon, url }) => (
         <Item key={url}>
-          <Link href={url}>
+          <Link aria-label={`Ir a ${icon} / ${url}`} href={url} title={`Ir a ${icon} / ${url}`}>
             <Icon name={icon} />
             <Description>{description}</Description>
           </Link>

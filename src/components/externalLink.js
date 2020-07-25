@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import styled from "@emotion/styled"
 
 const Anchor = styled.a`
@@ -10,10 +10,10 @@ const Anchor = styled.a`
   text-decoration: none;
 `
 
-const ExternalLink = ({ children, href }) => (
-  <Anchor href={href} target="_blank" rel="noopener noreferrer">
+const ExternalLink = ({ children, href, ...props }, ref) => (
+  <Anchor ref={ref} {...props} href={href} target="_blank" rel="noopener noreferrer">
     {children}
   </Anchor>
 )
 
-export default ExternalLink
+export default forwardRef(ExternalLink)

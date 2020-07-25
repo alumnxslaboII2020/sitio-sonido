@@ -8,14 +8,12 @@ module.exports = {
       {
         icon: "bandcamp",
         description: "Bandcamp",
-        url:
-          "https://aaxee.bandcamp.com/",
+        url: "https://aaxee.bandcamp.com/",
       },
       {
         icon: "soundcloud",
         description: "Soundcloud",
-        url:
-          "https://soundcloud.com/user-633409612-800357571",
+        url: "https://soundcloud.com/user-633409612-800357571",
       },
       {
         icon: "youtube",

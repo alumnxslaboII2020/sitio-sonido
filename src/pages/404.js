@@ -11,7 +11,7 @@ const Title = styled.h1`
   padding: 0.5rem;
   text-align: center;
   text-decoration: none;
-  text-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 4px #000000;
   @media (max-width: 768px) {
     font-size: 1.8rem;
   }
@@ -21,7 +21,7 @@ const Description = styled.p`
   font-size: 1.2rem;
   max-width: 35%;
   padding: 0.5rem;
-  text-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 4px #000000;
   @media (max-width: 768px) {
     font-size: inherit;
     max-width: 90%;

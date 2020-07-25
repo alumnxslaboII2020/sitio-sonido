@@ -333,7 +333,9 @@ function AudioPlayer() {
     }
   }, [audioPlayer, play, prevPlay, setPlay, setTime])
 
-  const handleListen = useCallback(event => setTime(event.target.currentTime), [setTime])
+  const handleListen = useCallback(event => setTime(event.target.currentTime), [
+    setTime,
+  ])
 
   return (
     <AudioPlayerContainer loading={loading ? "true" : ""}>
@@ -345,20 +347,16 @@ function AudioPlayer() {
           defaultPlay="00:00"
           header={
             <StyledTransitionLink
-              to={
-                songPlaying
-                  ? songPlaying.slug
-                  : "/"
-              }
-              {...songPlaying ? songPlaying.transicion : {}}
+              to={songPlaying ? songPlaying.slug : "/"}
+              {...(songPlaying ? songPlaying.transicion : {})}
             >
-              <SongHeader>
-                Resonancia Colectiva
-              </SongHeader>
-              
-              {songPlaying && <SongHeader>
-                {`${songPlaying.orden} - ${songPlaying.titulo} ~ by ${songPlaying.artista}`}
-              </SongHeader>}
+              <SongHeader>Resonancia Colectiva</SongHeader>
+
+              {songPlaying && (
+                <SongHeader>
+                  {`${songPlaying.orden} - ${songPlaying.titulo} ~ by ${songPlaying.artista}`}
+                </SongHeader>
+              )}
             </StyledTransitionLink>
           }
           onListen={handleListen}

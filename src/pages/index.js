@@ -23,7 +23,7 @@ const MasonryContainer = styled.div`
 `
 
 const Banner = styled.div`
-box-shadow: 0 2px 60px #666;
+  box-shadow: 0 2px 60px #666;
   height: auto;
   margin-top: 2rem;
   width: 40%;
@@ -59,7 +59,7 @@ const Title = styled.h1`
   padding: 0.5rem;
   text-align: center;
   text-decoration: none;
-  text-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 4px #000000;
   @media (max-width: 768px) {
     font-size: 1.8rem;
   }
@@ -75,7 +75,7 @@ const Description = styled.p`
   font-size: 1.2rem;
   max-width: 35%;
   padding: 0.5rem;
-  text-shadow: 2px 2px 4px #000;
+  text-shadow: 2px 2px 4px #000000;
   @media (max-width: 768px) {
     font-size: inherit;
     max-width: 90%;
@@ -125,7 +125,7 @@ const Inicio = ({ data }) => {
             Paisaje audiovisual/collage multidimensional colaborativo compuesto
             a partir de sonidos específicos, creados desde registros de fuentes
             electromagnéticas, mecánicas y físicas, acusmatizadas natural y
-            analógicamente, editadas y ensambladas digitalmente. 
+            analógicamente, editadas y ensambladas digitalmente.
           </Description>
           <Description>
             47 artistas, 47 obras de 1 minuto cada una, ensambladas para así
@@ -138,9 +138,16 @@ const Inicio = ({ data }) => {
             composiciones.
           </Description>
           <Description>
-            Como resultado: un proyecto audiovisual colaborativo, con un
-            banco de sonidos comunitario compuesto por todxs lxs artistas de
-            este LP.
+            El aspecto visual consta de la misma base, partiendo todxs de un
+            archivo visual en común de imágenes fijas y en movimiento creadas
+            por lxs mismxs artistas, mediante el registro analógico o digital de
+            imagen y video o haciendo uso de técnicas de síntesis de video
+            vistas en clase (usando herramientas como Vsynth, programa creado
+            por Kevin Kripper, compañero de la carrera).
+          </Description>
+          <Description>
+            Como resultado: un proyecto audiovisual colaborativo, con un banco
+            de sonidos comunitario compuesto por todxs lxs artistas de este LP.
           </Description>
         </DescriptionContainer>
       </About>
@@ -171,7 +178,7 @@ const Inicio = ({ data }) => {
                 <TransitionLink
                   aria-label={`Ir al tema: ${titulo}`}
                   color_transicion={
-                    transicion === "cubrir" ? "#000" : color_transicion
+                    transicion === "cubrir" ? "#000000" : color_transicion
                   }
                   direccion_transicion={direccion_transicion}
                   duracion_transicion={duracion_transicion}

@@ -6,7 +6,7 @@ import {
   FaInstagram,
   FaSoundcloud,
   FaTwitter,
-  FaYoutube
+  FaYoutube,
 } from "react-icons/fa"
 import { MdClose, MdMenu } from "react-icons/md"
 
