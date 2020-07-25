@@ -4,6 +4,7 @@ import {
   FaFacebook,
   FaGithub,
   FaInstagram,
+  FaSoundcloud,
   FaTwitter,
   FaYoutube
 } from "react-icons/fa"
@@ -16,6 +17,7 @@ const ICON_MAP = {
   github: FaGithub,
   instagram: FaInstagram,
   menu: MdMenu,
+  soundcloud: FaSoundcloud,
   twitter: FaTwitter,
   youtube: FaYoutube,
 }

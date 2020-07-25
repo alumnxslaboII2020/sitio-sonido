@@ -200,7 +200,7 @@ export default Inicio
 
 export const pageQuery = graphql`
   query {
-    file(name: { eq: "tarjeta" }, sourceInstanceName: { eq: "assets" }) {
+    file(name: { eq: "PORTADA" }, sourceInstanceName: { eq: "assets" }) {
       name
       childImageSharp {
         fluid {
