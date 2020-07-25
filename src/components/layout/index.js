@@ -39,7 +39,7 @@ const Header = styled.nav`
   top: 0;
   width: 100%;
   z-index: 2;
-  @media (max-width: 992px) {
+  @media (max-width: 1150px) {
     padding: 0;
   }
 `
@@ -49,7 +49,7 @@ const Menu = styled.ul`
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-  @media (max-width: 992px) {
+  @media (max-width: 1150px) {
     background-color: ${({ theme }) => theme.layout};
     flex-direction: column;
     position: absolute;
@@ -68,7 +68,7 @@ const MenuItem = styled.li`
   &:not(:last-of-type) {
     margin-right: 2rem;
   }
-  @media (max-width: 992px) {
+  @media (max-width: 1150px) {
     height: 2rem;
     &:not(:last-of-type) {
       margin-right: 0;
@@ -137,7 +137,7 @@ const ToggleMenuButton = styled.button`
   display: none;
   right: 0.5rem;
   top: 0.7rem;
-  @media (max-width: 992px) {
+  @media (max-width: 1150px) {
     display: initial;
   }
 `
@@ -249,6 +249,17 @@ function HeaderComponent({ mount, transition, transitionStatus }) {
               to="/experimentos"
             >
               Experimentos
+            </MenuLink>
+          </MenuItem>
+          <MenuItem>
+            <MenuLink
+              {...transition}
+              title="Ir a los agradecimientos y créditos"
+              activeClassName="active"
+              aria-label="Ir a los agradecimientos y créditos"
+              to="/agradecimientos"
+            >
+              Agradecimientos y créditos
             </MenuLink>
           </MenuItem>
           <MenuItem>
