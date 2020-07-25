@@ -12,6 +12,12 @@ module.exports = {
           "https://aaxee.bandcamp.com/",
       },
       {
+        icon: "soundcloud",
+        description: "Soundcloud",
+        url:
+          "https://soundcloud.com/user-633409612-800357571",
+      },
+      {
         icon: "youtube",
         description: "Canal de YouTube",
         url:
@@ -86,7 +92,7 @@ module.exports = {
     {
       resolve: `gatsby-source-sanity`,
       options: {
-        projectId: "5nffa2mu",
+        projectId: "m29oesrg",
         dataset: "production",
         graphqlTag: "default",
       },
