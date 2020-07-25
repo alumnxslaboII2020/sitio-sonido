@@ -199,7 +199,7 @@ function HeaderComponent({ mount, transition, transitionStatus }) {
   return (
     <TransitionPortal level={transitionEnded ? "top" : "bottom"}>
       <Header>
-        <ToggleMenuButton onClick={toggleMenuOpen}>
+        <ToggleMenuButton aria-label={`${menuOpen ? "Abrir" : "Cerrar"} links para celular`} onClick={toggleMenuOpen}>
           <Icon name={menuOpen ? "close" : "menu"} />
         </ToggleMenuButton>
         <Menu open={transitionEnded && menuOpen}>
@@ -225,8 +225,7 @@ function HeaderComponent({ mount, transition, transitionStatus }) {
               Temas
             </MenuLink>
           </MenuItem>
-          {/* TODO add video */}
-          {/* <MenuItem>
+          <MenuItem>
             <MenuLink
               {...transition}
               title="Ir al video"
@@ -236,7 +235,18 @@ function HeaderComponent({ mount, transition, transitionStatus }) {
             >
               Video
             </MenuLink>
-          </MenuItem> */}
+          </MenuItem>
+          <MenuItem>
+            <MenuLink
+              {...transition}
+              title="Ir a los experimentos"
+              activeClassName="active"
+              aria-label="Ir a los experimentos"
+              to="/experimentos"
+            >
+              Experimentos
+            </MenuLink>
+          </MenuItem>
           <MenuItem>
             <MenuAction onClick={scrollToBottom}>Escuchar</MenuAction>
           </MenuItem>
