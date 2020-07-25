@@ -11,7 +11,13 @@ const Anchor = styled.a`
 `
 
 const ExternalLink = ({ children, href, ...props }, ref) => (
-  <Anchor ref={ref} {...props} href={href} target="_blank" rel="noopener noreferrer">
+  <Anchor
+    ref={ref}
+    {...props}
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     {children}
   </Anchor>
 )
