@@ -214,7 +214,7 @@ const Tema = ({ data, pageContext }) => {
           <Author>
             <p>Artista: {artista}</p>
             <LinksList Link={Link} links={links} />
-            <PlayButton aria-label={`Escuchar ${titulo}`} onClick={handleClick}>
+            <PlayButton aria-label={`Escuchar ${titulo} por ${artista}`} onClick={handleClick}>
               escuchar
             </PlayButton>
           </Author>
