@@ -74,9 +74,9 @@ function Experimentos({ data }) {
           Link={ButtonLink}
           links={[
             {
-              description: "@santiago.n.n",
+              description: "@santiago.n.m",
               icon: "instagram",
-              url: "https://instagram.com/santiago.n.n",
+              url: "https://instagram.com/santiago.n.m",
             },
             {
               description: "santimigueles",
