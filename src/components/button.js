@@ -15,7 +15,8 @@ const Button = styled.button`
   transition: all 0.4s ease;
   :focus,
   :hover {
-    background-color: ${({ background, theme }) => background ? theme.layout_links_hover : `${theme.layout}aa`};
+    background-color: ${({ background, theme }) =>
+      background ? theme.layout_links_hover : `${theme.layout}aa`};
   }
   :hover {
     box-shadow: 0px 2px 6px #000000;
