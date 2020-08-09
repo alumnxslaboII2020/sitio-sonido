@@ -10,7 +10,7 @@ const Anchor = styled.a`
   text-decoration: none;
 `
 
-const ExternalLink = ({ children, href, ...props }, ref) => (
+const Link = ({ children, href, ...props }, ref) => (
   <Anchor
     ref={ref}
     {...props}
@@ -22,4 +22,6 @@ const ExternalLink = ({ children, href, ...props }, ref) => (
   </Anchor>
 )
 
-export default forwardRef(ExternalLink)
+const ExternalLink = forwardRef(Link)
+
+export default ExternalLink

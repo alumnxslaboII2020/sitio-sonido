@@ -2,10 +2,9 @@ import React, { useCallback, useState } from "react"
 import styled from "@emotion/styled"
 import { graphql } from "gatsby"
 
-import Button from "../components/button"
+import ButtonLink from "../components/buttonLink"
 import Disclaimer from "../components/disclaimer"
 import ExpandableContainer from "../components/expandableContainer"
-import ExternalLink from "../components/externalLink"
 import Layout from "../components/layout"
 import LinksList from "../components/linksList"
 import Loading from "../components/loading"
@@ -13,14 +12,13 @@ import SEO from "../components/seo"
 import Title from "../components/title"
 import pathOr from "../utils/pathOr"
 
-
 // https://github.com/gatsbyjs/gatsby/issues/309
 let Sketch = function Sketch() {
   return null
 }
 
 try {
-  Sketch = require("react-p5");
+  Sketch = require("react-p5")
 } catch (error) {
   console.log(error)
 }
@@ -30,20 +28,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 1rem;
 `
 
 const Paragraph = styled.p`
   font-size: 1.2rem;
 `
-
-function ButtonLink({ children, href }) {
-  return (
-    <Button background tabIndex={-1}>
-      <ExternalLink href={href}>{children}</ExternalLink>
-    </Button>
-  )
-}
 
 function Experimentos({ data }) {
   const image = pathOr(null, ["file", "publicURL"], data)
@@ -215,12 +205,4 @@ export const pageQuery = graphql`
       name
       publicURL
     }
-    allFile(filter: { sourceInstanceName: { eq: "assets" } }) {
-      edges {
-        node {
-          publicURL
-        }
-      }
-    }
-  }
 `
