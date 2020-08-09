@@ -205,4 +205,5 @@ export const pageQuery = graphql`
       name
       publicURL
     }
+  }
 `
