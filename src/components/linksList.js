@@ -6,6 +6,7 @@ import Icon from "./icon"
 
 const List = styled.ul`
   display: flex;
+  flex-direction: ${({ column }) => (column ? "column" : "row")};
   flex-wrap: wrap;
   justify-content: space-between;
   list-style-type: none;
@@ -21,17 +22,21 @@ const Item = styled.li`
   display: flex;
   flex: 1;
   justify-content: center;
+  margin: 0 0.5rem;
   padding: 8px 0;
   white-space: nowrap;
+  @media (max-width: 768px) {
+    margin: 0.25rem 0;
+  }
 `
 
 const Description = styled.span`
   margin-left: 8px;
 `
 
-function LinksList({ links, Link = ExternalLink }) {
+function LinksList({ column = false, links, Link = ExternalLink }) {
   return (
-    <List>
+    <List column={column}>
       {links.map(({ description, icon, url }) => (
         <Item key={url}>
           <Link
