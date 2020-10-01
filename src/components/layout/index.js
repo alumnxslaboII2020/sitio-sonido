@@ -201,7 +201,7 @@ function HeaderComponent({ mount, transition, transitionStatus }) {
     <TransitionPortal level={transitionEnded ? "top" : "bottom"}>
       <Header>
         <ToggleMenuButton
-          aria-label={`${menuOpen ? "Abrir" : "Cerrar"} links para celular`}
+          aria-label={`${menuOpen ? "Cerrar" : "Abrir"} links para celular`}
           onClick={toggleMenuOpen}
         >
           <Icon name={menuOpen ? "close" : "menu"} />
