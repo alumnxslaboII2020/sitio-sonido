@@ -59,19 +59,14 @@ function Experimentos({ data }) {
           </span>
           )
         </Paragraph>
-        <Paragraph>Este experimento fue realizado por Santi Migueles</Paragraph>
+        <Paragraph>Este experimento fue realizado por Samira</Paragraph>
         <LinksList
           Link={ButtonLink}
           links={[
             {
-              description: "@santiago.n.m",
+              description: "@santa__samira",
               icon: "instagram",
-              url: "https://instagram.com/santiago.n.m",
-            },
-            {
-              description: "santimigueles",
-              icon: "github",
-              url: "https://github.com/santimigueles",
+              url: "https://instagram.com/santa__samira",
             },
           ]}
         />

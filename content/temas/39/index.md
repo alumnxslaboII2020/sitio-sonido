@@ -1,7 +1,7 @@
 ---
 titulo: "Nabucondonosor XXX"
-artista: "NN"
-instagram: "@santiago.n.m"
+artista: "Samira"
+instagram: "@santa__samira"
 orden: 39
 imagen: "./39.png"
 tiempo: "36:04"

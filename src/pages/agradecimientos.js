@@ -48,8 +48,7 @@ function Agradecimientos() {
         Penovi.
       </Paragraph>
       <Paragraph>
-        Sitio Web: Scripting por Mariano Ferreras (flariut), WEBGL por Santiago
-        Migueles (santimigueles), sitio por Roy Eden (royeden).
+        Sitio Web: Scripting por Mariano Ferreras (flariut), WEBGL por Samira (santa__samira), sitio por Roy Eden (royeden).
       </Paragraph>
       <LinksList
         Link={ButtonLink}
@@ -60,9 +59,9 @@ function Agradecimientos() {
             url: "https://github.com/flariut",
           },
           {
-            description: "santimigueles",
-            icon: "github",
-            url: "https://github.com/santimigueles",
+            description: "samira",
+            icon: "instagram",
+            url: "https://instagram.com/santa__samira",
           },
           {
             description: "royeden",
